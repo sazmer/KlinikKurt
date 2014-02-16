@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.appanaget.Klinikkurt2Future" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>KlinikKurt</name>
+    <description>
+        Äntligen kan du fylla i KlinikKurt och VårdcentralKurt direkt från din telefon - Enklare, snabbare, smidigare, snyggare!
+
+Denna app är endast för studenter på Läkarprogrammet vid Uppsala Universitet.
+
+KlinikKurt är en särskild utvärdering av klinisk handledning på Uppsalas läkarutbildning. Utvärderingen består av tio frågor som fylls i efter avslutad klinisk placering, såväl på Akademiska sjukhuset som på sjukhus i regionen.
+
+VårdcentralKurt utvärderar på liknande sätt vårdcentralplaceringarna. I slutet av varje termin sammanställs resultaten och mynnar för klinikerna i Uppsala ut i en prestigefylld kliniktävling där både ära och en viss summa pengar står på spel.
+
+Alla som fyller i KlinikKurt eller VårdcentralKurt hjälper till att göra läkarutbildningen bättre, dessutom har du chans att vinna i lotteriet med ett pass med anestesihelikoptern som första pris!
+    </description>
+    <author email="info@appanaget.se" href="http://www.studieradet.se">
+        Medicinska Studierådet Uppsala, Appanaget
+    </author>
+    <access origin="*" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="orientation" value="portrait" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="disallowOverscroll" value="true" />
+</widget>
