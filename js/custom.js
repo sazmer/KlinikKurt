@@ -66,7 +66,7 @@ function onBodyLoad() {
 
 
     if (ver[0] >= 7) {
-        console.log('This is running iOS 7 or later.');
+        window.plugins.webviewcolor.change('#FFFFFF');
         $(".ui-header .ui-title").css("padding-top", "10px");
         $(".ui-header .ui-btn-left").css("margin-top", "10px");
         $("#omalltitles").css("padding-top", "10px");
@@ -532,6 +532,9 @@ $(document).delegate("#ommsr", "pageshow", function(event) {
 });
 $(document).delegate("#kkpage", "pageshow", function(event) {
     //window.plugins.googleAnalyticsPlugin.trackPageview("KKpage");
+    if (ver[0] >= 7) {
+	window.plugins.webviewcolor.change('#C6E0FF');
+					 }
     $.mobile.hidePageLoadingMsg();
     // returns true if if date <= today
     // returns false if if date > today
@@ -845,6 +848,10 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
     if (device.platform === "iPhone" || device.platform === "iOS") {
         $('#vcq2').selectmenu({preventFocusZoom: true});
     }
+    
+	if (ver[0] >= 7) {
+		window.plugins.webviewcolor.change('#FFC6C6');
+	}
     //window.plugins.googleAnalyticsPlugin.trackPageview("VCpage");
     $.mobile.hidePageLoadingMsg();
     // returns true if if date <= today
