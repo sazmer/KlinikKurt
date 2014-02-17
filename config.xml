@@ -21,5 +21,4 @@ Alla som fyller i KlinikKurt eller VårdcentralKurt hjälper till att göra läk
     <preference name="orientation" value="portrait" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disallowOverscroll" value="true" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
 </widget>
