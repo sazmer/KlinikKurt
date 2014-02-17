@@ -22,12 +22,12 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disallowOverscroll" value="true" />
     
-    <gap:plugin name="Device" value="org.apache.cordova.core.Device"/>
-    <gap:plugin name="NetworkStatus" value="org.apache.cordova.core.NetworkManager" />
-    <gap:plugin name="Accelerometer" value="org.apache.cordova.core.AccelListener" />
-    <gap:plugin name="Notification" value="org.apache.cordova.core.Notification" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="InAppBrowser" value="org.apache.cordova.core.InAppBrowser" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="ihome.cordova.plugin.local-notification" />
