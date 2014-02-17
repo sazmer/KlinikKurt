@@ -24,7 +24,6 @@
     
     <gap:plugin name="org.apache.cordova.core.device"/>   
     <gap:plugin name="org.apache.cordova.core.networkmanager" />
-    <gap:plugin name="org.apache.cordova.core.accellistener" />
     <gap:plugin name="org.apache.cordova.core.notification" />
     <gap:plugin name="org.apache.cordova.core.splashscreen" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
