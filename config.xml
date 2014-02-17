@@ -4,13 +4,13 @@
     <description>
         Äntligen kan du fylla i KlinikKurt och VårdcentralKurt direkt från din telefon - Enklare, snabbare, smidigare, snyggare!
 
-Denna app är endast för studenter på Läkarprogrammet vid Uppsala Universitet.
+        Denna app är endast för studenter på Läkarprogrammet vid Uppsala Universitet.
 
-KlinikKurt är en särskild utvärdering av klinisk handledning på Uppsalas läkarutbildning. Utvärderingen består av tio frågor som fylls i efter avslutad klinisk placering, såväl på Akademiska sjukhuset som på sjukhus i regionen.
+        KlinikKurt är en särskild utvärdering av klinisk handledning på Uppsalas läkarutbildning. Utvärderingen består av tio frågor som fylls i efter avslutad klinisk placering, såväl på Akademiska sjukhuset som på sjukhus i regionen.
 
-VårdcentralKurt utvärderar på liknande sätt vårdcentralplaceringarna. I slutet av varje termin sammanställs resultaten och mynnar för klinikerna i Uppsala ut i en prestigefylld kliniktävling där både ära och en viss summa pengar står på spel.
+        VårdcentralKurt utvärderar på liknande sätt vårdcentralplaceringarna. I slutet av varje termin sammanställs resultaten och mynnar för klinikerna i Uppsala ut i en prestigefylld kliniktävling där både ära och en viss summa pengar står på spel.
 
-Alla som fyller i KlinikKurt eller VårdcentralKurt hjälper till att göra läkarutbildningen bättre, dessutom har du chans att vinna i lotteriet med ett pass med anestesihelikoptern som första pris!
+        Alla som fyller i KlinikKurt eller VårdcentralKurt hjälper till att göra läkarutbildningen bättre, dessutom har du chans att vinna i lotteriet med ett pass med anestesihelikoptern som första pris!
     </description>
     <author email="info@appanaget.se" href="http://www.studieradet.se">
         Medicinska Studierådet Uppsala, Appanaget
@@ -21,6 +21,6 @@ Alla som fyller i KlinikKurt eller VårdcentralKurt hjälper till att göra läk
     <preference name="orientation" value="portrait" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disallowOverscroll" value="true" />
-       
-    <gap:plugin name="org.apache.cordova.core.device"/>
+    
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" /> 
 </widget>
