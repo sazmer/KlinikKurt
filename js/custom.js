@@ -60,6 +60,14 @@ function iOSversion() {
 var ver = new Array();
 ver = iOSversion();
 function onBodyLoad() {
+    var devicePlatform = device.platform;
+    if (devicePlatform === "Android") {
+        var link = document.createElement("link");
+        link.href = "androidspecific.css";
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        document.getElementsByTagName("head")[0].appendChild(link);
+    }
     navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
     $.mobile.page.prototype.options.domCache = false;
@@ -533,8 +541,8 @@ $(document).delegate("#ommsr", "pageshow", function(event) {
 $(document).delegate("#kkpage", "pageshow", function(event) {
     //window.plugins.googleAnalyticsPlugin.trackPageview("KKpage");
     if (ver[0] >= 7) {
-	window.plugins.webviewcolor.change('#C6E0FF');
-					 }
+        window.plugins.webviewcolor.change('#C6E0FF');
+    }
     $.mobile.hidePageLoadingMsg();
     // returns true if if date <= today
     // returns false if if date > today
@@ -848,10 +856,10 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
     if (device.platform === "iPhone" || device.platform === "iOS") {
         $('#vcq2').selectmenu({preventFocusZoom: true});
     }
-    
-	if (ver[0] >= 7) {
-		window.plugins.webviewcolor.change('#FFC6C6');
-	}
+
+    if (ver[0] >= 7) {
+        window.plugins.webviewcolor.change('#FFC6C6');
+    }
     //window.plugins.googleAnalyticsPlugin.trackPageview("VCpage");
     $.mobile.hidePageLoadingMsg();
     // returns true if if date <= today
@@ -984,30 +992,30 @@ $(document).delegate("#vcpage", "pageinit", function() {
         }
     }
     /*
-    JESPER: DEN HÄR FUNKTIONEN BEHÖVS JU INTE LÄNGRE, NU ÄR DET JU BARA VCFR10 SOM SKA SYNAS DE ANDRA ÄR JU INTE LÄNGRE MED I ORIGINALFORMULÄRET. ÄNDRADE HÄR, I JS OCH HTML-FILEN
-    jQuery(function() {
-        jQuery("input[name=qT]").change(function() { 
-            if ($(this).val() === "5") {
-                $("#vcfr10").show();
-                $("#vcfr9").hide();
-            } else {
-//                $("#vcfr10").hide();
-//                $("#vcfr9").show();
-            }
-        });
-    });
-
-
-    function VCterm11() {
-        if ($("input:radio[name='qT']:checked").val() === '5') {
-            $("#vcfr10").show();
-            $("#vcfr9").hide();
-        } else {
-            $("#vcfr10").hide();
-            $("#vcfr9").show();
-        }
-    }
-    */
+     JESPER: DEN HÄR FUNKTIONEN BEHÖVS JU INTE LÄNGRE, NU ÄR DET JU BARA VCFR10 SOM SKA SYNAS DE ANDRA ÄR JU INTE LÄNGRE MED I ORIGINALFORMULÄRET. ÄNDRADE HÄR, I JS OCH HTML-FILEN
+     jQuery(function() {
+     jQuery("input[name=qT]").change(function() { 
+     if ($(this).val() === "5") {
+     $("#vcfr10").show();
+     $("#vcfr9").hide();
+     } else {
+     //                $("#vcfr10").hide();
+     //                $("#vcfr9").show();
+     }
+     });
+     });
+     
+     
+     function VCterm11() {
+     if ($("input:radio[name='qT']:checked").val() === '5') {
+     $("#vcfr10").show();
+     $("#vcfr9").hide();
+     } else {
+     $("#vcfr10").hide();
+     $("#vcfr9").show();
+     }
+     }
+     */
     var cas_regex = /[a-zA-Z]+[a-zA-Z]+[a-zA-Z]+[a-zA-Z]+[0-9]+[0-9]+[0-9]+[0-9]/g;
     $("#vckurtform").submit(function(e) {
         e.preventDefault();
