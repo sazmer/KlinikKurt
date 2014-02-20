@@ -63,7 +63,7 @@ function onBodyLoad() {
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         var link = document.createElement("link");
-        link.href = "androidspecific.css";
+        link.href = "css/androidspecific.css";
         link.type = "text/css";
         link.rel = "stylesheet";
         document.getElementsByTagName("head")[0].appendChild(link);
