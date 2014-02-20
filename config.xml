@@ -32,5 +32,8 @@
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="ihome.cordova.plugin.local-notification" />
     <gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
+    
+    <icon src="icon.png" />
+    <gap:splash src="splash.png" />
 
 </widget>
