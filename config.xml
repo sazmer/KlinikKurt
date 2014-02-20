@@ -21,7 +21,8 @@
     <preference name="orientation" value="portrait" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disallowOverscroll" value="true" />
-    
+    <preference name="SplashScreenDelay" value="0" />
+
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.device-motion" />
@@ -32,7 +33,7 @@
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="ihome.cordova.plugin.local-notification" />
     <gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
-    
+
     <icon src="icon.png" />
     <gap:splash src="splash.png" />
 
