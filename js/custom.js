@@ -724,7 +724,7 @@ $(document).delegate("#kkpage", "pageinit", function(event) {
     $('#kkq2').change(T9Psyk);
 
     function T9Psyk() {
-        if ($('input[name=q1]:checked').val() === '31' && $('#kkq2 :selected').val() === '24') {
+        if ($('input[name=q1]:checked').val() === '30' && $('#kkq2 :selected').val() === '24') {
             KKfr3.removeClass("hinge").show();
             FewQ.hide();
             MoreQ.show();
