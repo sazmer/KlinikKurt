@@ -724,7 +724,7 @@ $(document).delegate("#kkpage", "pageinit", function(event) {
     $('#kkq2').change(T9Psyk);
 
     function T9Psyk() {
-        if ($('input[name=q1]:checked').val() === '26' && $('#kkq2 :selected').val() === '24') {
+        if ($('input[name=q1]:checked').val() === '31' && $('#kkq2 :selected').val() === '24') {
             KKfr3.removeClass("hinge").show();
             FewQ.hide();
             MoreQ.show();
@@ -747,7 +747,7 @@ $(document).delegate("#kkpage", "pageinit", function(event) {
 
 
     function T910gyn() {
-        if ($('input[name=q1]:checked').val() === '22' || $('input[name=q1]:checked').val() === '24' || $('input[name=q1]:checked').val() === '25' || $('input[name=q1]:checked').val() === '29' || $('input[name=q1]:checked').val() === '30' || $('input[name=q1]:checked').val() === '31') {
+        if ($('input[name=q1]:checked').val() === '26' || $('input[name=q1]:checked').val() === '28' || $('input[name=q1]:checked').val() === '29' || $('input[name=q1]:checked').val() === '33' || $('input[name=q1]:checked').val() === '34' || $('input[name=q1]:checked').val() === '35') {
             $("#kkfr4").removeClass("hinge");
             $("#kkfr4").show();
             FewQ.hide();
