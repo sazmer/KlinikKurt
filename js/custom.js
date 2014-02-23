@@ -48,6 +48,7 @@ function clearKK() {
      });*/
     console.log('Inskickad KK3');
 }
+
 function iOSversion() {
     if (/iP(hone|od|ad)/.test(navigator.platform)) {
         // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
@@ -57,9 +58,12 @@ function iOSversion() {
         return [0, 0, 0];
     }
 }
+
 var ver = new Array();
 ver = iOSversion();
 function onBodyLoad() {
+    StatusBar.overlaysWebView(true);
+
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         var link = document.createElement("link");

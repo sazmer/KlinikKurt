@@ -33,7 +33,8 @@
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="ihome.cordova.plugin.local-notification" />
     <gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
-
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    
     <icon src="icon.png" />
     <gap:splash src="splash.png" />
     <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
