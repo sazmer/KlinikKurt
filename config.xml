@@ -47,7 +47,7 @@
     <icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
     
     <feature name="debug-server" required="true">
-        <param name="domain" value="http://localhost:8080"/>
+        <param name="domain" value="http://192.168.1.7:8080"/>
         <param name="key" value="KlinikKurt"/>
     </feature>
 </widget>
