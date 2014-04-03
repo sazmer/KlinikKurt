@@ -46,8 +46,5 @@
     <icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
     
-    <feature name="debug-server" required="true">
-        <param name="domain" value="http://82.196.175.208:8080"/>
-        <param name="key" value="KlinikKurt"/>
-    </feature>
+
 </widget>
