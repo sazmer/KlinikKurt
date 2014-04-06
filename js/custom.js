@@ -199,7 +199,10 @@ function onDeviceReady() {
         }, 100);
     }, 100);
 }
-
+setTimeout(function(){
+     doLog("14141");
+},3000);
+  
 function onOffline() {
     navigator.notification.alert("Du verkar ha lite problem med din n\344tverksanslutning. Du kan fortfarande fylla i din KURTning men du kommer inte kunna skicka in den utan att ansluta till ett WiFi-n\344tverk eller mobiln\344tverk.", null, "Kontrollera anslutning", "OK");
 }
