@@ -69,7 +69,7 @@ ver = iOSversion();
 function onBodyLoad() {
     doLog('onBodyLoad');
 //    StatusBar.overlaysWebView(true);
-    navigator.splashscreen.show();
+//    navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
     $.mobile.page.prototype.options.domCache = false;
 
@@ -85,15 +85,14 @@ function onBodyLoad() {
 function onDeviceReady() {
      doLog('deviceReady');
     var devicePlatform = device.platform;
-    if (devicePlatform === "Android") {
-        var link = document.createElement("link");
-        link.href = "css/androidspecific.css";
-        link.type = "text/css";
-        link.rel = "stylesheet";
-        document.getElementsByTagName("head")[0].appendChild(link);
-    } else {
-
-    }
+    //borta för debug
+//    if (devicePlatform === "Android") {
+//        var link = document.createElement("link");
+//        link.href = "css/androidspecific.css";
+//        link.type = "text/css";
+//        link.rel = "stylesheet";
+//        document.getElementsByTagName("head")[0].appendChild(link);
+//    } 
     $("#klinkurtnew").hide();
     $("#vckurtnew").hide();
     $("#ifylltnew").hide();
@@ -107,6 +106,7 @@ function onDeviceReady() {
     });
     document.addEventListener("offline", onOffline, false);
     $("#splash").show();
+    
 //    window.deviceOS = device.platform;
 //    console.log(deviceOS);
 //    if (deviceOS === "DEACTIVATEDAndroid") {
