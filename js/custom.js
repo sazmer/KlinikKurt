@@ -4,6 +4,7 @@ $(document).bind("mobileinit", function() {
     $.mobile.zoom = "disable";
     $.mobile.loadingMessageTheme = "d";
     $.mobile.buttonMarkup.hoverDelay = 0;
+       console.log('mobileInit');
 });
 
 
@@ -23,7 +24,6 @@ function clearKK() {
     $('#kkq2').val('null').selectmenu('refresh');
     $('#kkq3').val('null').selectmenu('refresh');
     $('#kkq4').val('null').selectmenu('refresh');
-    console.log('Inskickad KK2');
     $('input[type=radio]').attr('checked', false).next("label").removeClass("ui-btn-active");
     $('#kkpage :radio').attr('checked', false).checkboxradio("refresh");
     $("#kkq17").val("");
@@ -61,7 +61,9 @@ function iOSversion() {
 
 var ver = new Array();
 ver = iOSversion();
+
 function onBodyLoad() {
+       console.log('onBodyLoad');
     StatusBar.overlaysWebView(true);
 
     var devicePlatform = device.platform;
@@ -71,6 +73,8 @@ function onBodyLoad() {
         link.type = "text/css";
         link.rel = "stylesheet";
         document.getElementsByTagName("head")[0].appendChild(link);
+    } else {
+
     }
     navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -87,6 +91,7 @@ function onBodyLoad() {
 }
 
 function onDeviceReady() {
+           console.log('onDevice');
     $("#klinkurtnew").hide();
     $("#vckurtnew").hide();
     $("#ifylltnew").hide();
