@@ -4,13 +4,12 @@ $(document).bind("mobileinit", function() {
     $.mobile.zoom = "disable";
     $.mobile.loadingMessageTheme = "d";
     $.mobile.buttonMarkup.hoverDelay = 0;
-    console.log('mobileInit');
 });
 
-function doLog(s){
-    setTimeout(function(){
+function doLog(s) {
+    setTimeout(function() {
         console.log(s);
-    },3000);
+    }, 3000);
 }
 
 function clearVC() {
@@ -69,13 +68,10 @@ ver = iOSversion();
 
 function onBodyLoad() {
     doLog('onBodyLoad');
-    StatusBar.overlaysWebView(true);
-
-
+//    StatusBar.overlaysWebView(true);
     navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
     $.mobile.page.prototype.options.domCache = false;
-
 
     if (ver[0] >= 7) {
         window.plugins.webviewcolor.change('#FFFFFF');
@@ -87,6 +83,7 @@ function onBodyLoad() {
 }
 
 function onDeviceReady() {
+     doLog('deviceReady');
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         var link = document.createElement("link");
@@ -178,7 +175,7 @@ function onDeviceReady() {
     } else {
         window.introClass = 'bounceInUp';
     }
-   doLog("0");
+    doLog("0");
     setTimeout(function() {
         cordova.exec(null, null, "SplashScreen", "hide", []);
         console.log("1");
@@ -199,10 +196,8 @@ function onDeviceReady() {
         }, 100);
     }, 100);
 }
-setTimeout(function(){
-     doLog("14141");
-},3000);
-  
+
+
 function onOffline() {
     navigator.notification.alert("Du verkar ha lite problem med din n\344tverksanslutning. Du kan fortfarande fylla i din KURTning men du kommer inte kunna skicka in den utan att ansluta till ett WiFi-n\344tverk eller mobiln\344tverk.", null, "Kontrollera anslutning", "OK");
 }
@@ -275,6 +270,9 @@ function TillHemFade() {
     return false;
 }
 $(document).delegate("#hem", "pageinit", function(event, ui) {
+    setTimeout(function() {
+        doLog("14141");
+    }, 3000);
     jQuery(function() {
         var omdiv = $('#om');
         var omwidth = omdiv.width();
