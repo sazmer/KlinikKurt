@@ -4,9 +4,14 @@ $(document).bind("mobileinit", function() {
     $.mobile.zoom = "disable";
     $.mobile.loadingMessageTheme = "d";
     $.mobile.buttonMarkup.hoverDelay = 0;
-       console.log('mobileInit');
+    console.log('mobileInit');
 });
 
+function doLog(s){
+    setTimeout(function(){
+        console.log(s);
+    },3000);
+}
 
 function clearVC() {
     console.log('Clearing VCKurtForm');
@@ -63,19 +68,10 @@ var ver = new Array();
 ver = iOSversion();
 
 function onBodyLoad() {
-       console.log('onBodyLoad');
+    doLog('onBodyLoad');
     StatusBar.overlaysWebView(true);
 
-    var devicePlatform = device.platform;
-    if (devicePlatform === "Android") {
-        var link = document.createElement("link");
-        link.href = "css/androidspecific.css";
-        link.type = "text/css";
-        link.rel = "stylesheet";
-        document.getElementsByTagName("head")[0].appendChild(link);
-    } else {
 
-    }
     navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
     $.mobile.page.prototype.options.domCache = false;
@@ -91,7 +87,16 @@ function onBodyLoad() {
 }
 
 function onDeviceReady() {
-           console.log('onDevice');
+    var devicePlatform = device.platform;
+    if (devicePlatform === "Android") {
+        var link = document.createElement("link");
+        link.href = "css/androidspecific.css";
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        document.getElementsByTagName("head")[0].appendChild(link);
+    } else {
+
+    }
     $("#klinkurtnew").hide();
     $("#vckurtnew").hide();
     $("#ifylltnew").hide();
@@ -173,7 +178,7 @@ function onDeviceReady() {
     } else {
         window.introClass = 'bounceInUp';
     }
-    console.log("0");
+   doLog("0");
     setTimeout(function() {
         cordova.exec(null, null, "SplashScreen", "hide", []);
         console.log("1");
