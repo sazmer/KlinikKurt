@@ -69,7 +69,7 @@ ver = iOSversion();
 function onBodyLoad() {
     doLog('onBodyLoad');
 //    StatusBar.overlaysWebView(true);
-//    navigator.splashscreen.show();
+    navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
     $.mobile.page.prototype.options.domCache = false;
 
@@ -85,14 +85,13 @@ function onBodyLoad() {
 function onDeviceReady() {
      doLog('deviceReady');
     var devicePlatform = device.platform;
-    //borta för debug
-//    if (devicePlatform === "Android") {
-//        var link = document.createElement("link");
-//        link.href = "css/androidspecific.css";
-//        link.type = "text/css";
-//        link.rel = "stylesheet";
-//        document.getElementsByTagName("head")[0].appendChild(link);
-//    } 
+    if (devicePlatform === "Android") {
+        var link = document.createElement("link");
+        link.href = "css/androidspecific.css";
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        document.getElementsByTagName("head")[0].appendChild(link);
+    } 
     $("#klinkurtnew").hide();
     $("#vckurtnew").hide();
     $("#ifylltnew").hide();
@@ -175,10 +174,9 @@ function onDeviceReady() {
     } else {
         window.introClass = 'bounceInUp';
     }
-    doLog("0");
     setTimeout(function() {
         cordova.exec(null, null, "SplashScreen", "hide", []);
-        console.log("1");
+
         setTimeout(function() {
             $("#omnew").addClass(introClass).show().delay(300).queue(function() {
                 $("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
@@ -187,7 +185,6 @@ function onDeviceReady() {
                             $("#newcontcover").show().delay(1600).queue(function() {
                                 $("#splash").hide();
                                 $("#newcont").addClass("hemcontbg");
-                                console.log("2");
                             });
                         });
                     });
