@@ -6,12 +6,6 @@ $(document).bind("mobileinit", function() {
     $.mobile.buttonMarkup.hoverDelay = 0;
 });
 
-function doLog(s) {
-    setTimeout(function() {
-        console.log(s);
-    }, 3000);
-}
-
 function clearVC() {
     console.log('Clearing VCKurtForm');
     $('#vcq2').val('null').selectmenu('refresh');
@@ -67,7 +61,6 @@ var ver = new Array();
 ver = iOSversion();
 
 function onBodyLoad() {
-    doLog('onBodyLoad');
 //    StatusBar.overlaysWebView(true);
     navigator.splashscreen.show();
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -83,7 +76,6 @@ function onBodyLoad() {
 }
 
 function onDeviceReady() {
-     doLog('deviceReady');
     var devicePlatform = device.platform;
     if (devicePlatform === "Android") {
         var link = document.createElement("link");
@@ -176,7 +168,6 @@ function onDeviceReady() {
     }
     setTimeout(function() {
         cordova.exec(null, null, "SplashScreen", "hide", []);
-
         setTimeout(function() {
             $("#omnew").addClass(introClass).show().delay(300).queue(function() {
                 $("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
@@ -256,7 +247,6 @@ function TillHem() {
 
 function TillHemFade() {
     $.mobile.showPageLoadingMsg();
-
     setTimeout(function() {
         $.mobile.changePage("#hem", {
             transition: "slidefade",
@@ -267,9 +257,6 @@ function TillHemFade() {
     return false;
 }
 $(document).delegate("#hem", "pageinit", function(event, ui) {
-    setTimeout(function() {
-        doLog("14141");
-    }, 3000);
     jQuery(function() {
         var omdiv = $('#om');
         var omwidth = omdiv.width();
