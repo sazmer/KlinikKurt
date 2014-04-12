@@ -173,10 +173,10 @@ function onDeviceReady() {
                 $("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
                     $("#vckurtnew").addClass(introClass).show().delay(300).queue(function() {
                         $("#klinkurtnew").addClass(introClass).show().delay(300).queue(function() {
-                            $("#newcontcover").show().delay(1600).queue(function() {
+//                            $("#newcontcover").show().delay(1600).queue(function() {
                                 $("#splash").hide();
                                 $("#newcont").addClass("hemcontbg");
-                            });
+//                            });
                         });
                     });
                 });
