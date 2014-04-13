@@ -21,7 +21,7 @@
     <preference name="orientation" value="portrait" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disallowOverscroll" value="true" />
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="12000" />
 
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
@@ -45,7 +45,7 @@
     <icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
     <icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-     <icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+     <icon src="icons/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
     
 
 </widget>
