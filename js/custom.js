@@ -561,13 +561,13 @@ $(document).delegate("#kkpage", "pageshow", function(event) {
         return (date <= parseInt(y + m + d)) ? true : false;
     }
 
-    var EXPIRE_DATE = "20140608";
+    var EXPIRE_DATE = "20150118";
 
     if (dateBeforeNow(EXPIRE_DATE)) {
         $.mobile.changePage("#hem", {
             transition: "flip"
         });
-        navigator.notification.alert("Attans! Den h\344r terminens KlinikKurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "KlinikKurt VT14 har st\344ngt!", "OK");
+        navigator.notification.alert("Attans! Den h\344r terminens KlinikKurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "KlinikKurt HT14 har st\344ngt!", "OK");
     }
 });
 
@@ -725,7 +725,7 @@ $(document).delegate("#kkpage", "pageinit", function(event) {
     $('#kkq2').change(T9Psyk);
 
     function T9Psyk() {
-        if ($('input[name=q1]:checked').val() === '30' && $('#kkq2 :selected').val() === '24') {
+        if ($('input[name=q1]:checked').val() === '29' && $('#kkq2 :selected').val() === '20') {
             KKfr3.removeClass("hinge").show();
             FewQ.hide();
             MoreQ.show();
@@ -741,14 +741,14 @@ $(document).delegate("#kkpage", "pageinit", function(event) {
     }
 
     function Uppsala() {
-        if ($('#kkq2 :selected').val() === '24') {
+        if ($('#kkq2 :selected').val() === '20') {
             T910gyn();
         }
     }
 
 
     function T910gyn() {
-        if ($('input[name=q1]:checked').val() === '26' || $('input[name=q1]:checked').val() === '28' || $('input[name=q1]:checked').val() === '29' || $('input[name=q1]:checked').val() === '33' || $('input[name=q1]:checked').val() === '34' || $('input[name=q1]:checked').val() === '35') {
+        if ($('input[name=q1]:checked').val() === '25' || $('input[name=q1]:checked').val() === '27' || $('input[name=q1]:checked').val() === '28' || $('input[name=q1]:checked').val() === '32' || $('input[name=q1]:checked').val() === '33' || $('input[name=q1]:checked').val() === '34') {
             $("#kkfr4").removeClass("hinge");
             $("#kkfr4").show();
             FewQ.hide();
@@ -879,13 +879,13 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
         return (date <= parseInt(y + m + d)) ? true : false;
     }
 
-    var EXPIRE_DATE = "20140608";
+    var EXPIRE_DATE = "20150118";
 
     if (dateBeforeNow(EXPIRE_DATE)) {
         $.mobile.changePage("#hem", {
             transition: "flip"
         });
-        navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt VT14 har st\344ngt!", "OK");
+        navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt HT14 har st\344ngt!", "OK");
     }
 });
 $(document).delegate("#vcpage", "pageinit", function() {

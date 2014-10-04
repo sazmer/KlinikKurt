@@ -12,9 +12,7 @@
         <script src="PushNotification.js"></script>
         <!-- jQuery -->
         <script src="js/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript">
-
-        </script>
+        <script type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="css/flat_ui/jquery.mobile.flatui.min.css" />
         <link rel="stylesheet" href="css/stil-min.css" type="text/css" media="Screen" />
         <link href="css/animate.css" rel="stylesheet" type="text/css">
@@ -112,7 +110,7 @@
                         Medicinska Studier&aring;det (MSR) ansvarar f&ouml;r den studiebevakande verksamheten p&aring; l&auml;karprogrammet.<br><br>MSR representerar l&auml;karstudenter i bland annat Programkommittén, Medicinska sektionen, Grundutbildningskommittén samt olika arbetsgrupper.<br><br>Studier&aring;det arbetar aktivt f&ouml;r att utveckla och f&ouml;rb&auml;ttra utbildningen. Ett viktigt verktyg i detta arbete &auml;r kursv&auml;rderingar, inklusive KlinikKurt samt V&aring;rdcentralKurt.<br/><br/>Har du synpunkter p&aring;, eller fr&aring;gor om, din utbildning &auml;r du varmt v&auml;lkommen att h&ouml;ra av dig till din kursrepresentant.<br/><br/>F&ouml;r mer information om MSR, bes&ouml;k <a href="#" id=msrsdr >studier&aring;det.se</a>. Du kan &auml;ven kontakta oss via mail: <a href="mailto:ordf@msr.studorg.uu.se" id=msrordf>ordf@msr.studorg.uu.se</a> eller <a href="mailto:vordf@msr.studorg.uu.se" target="_blank">vordf@msr.studorg.uu.se</a>
                     </div>
                     <div id="omkkdiv" class="animatedFast fadeIn" style="width:100%;">
-                        KlinikKurt och V&aring;rdcentralKurt &auml;r kursv&auml;rderingar f&ouml;r de kliniska placeringarna p&aring; l&auml;karprogrammet i Uppsala.<br/><br/>Genom att utv&auml;rdera dina placeringar bidrar du till att f&ouml;rb&auml;ttra den kliniska undervisningen samt den kliniska handledningen. Dessutom har du m&ouml;jlighet att delta i KlinikKurt/V&aring;rdcentralKurt-lotteriet d&auml;r h&ouml;gsta vinsten &auml;r en tur med intensivv&aring;rdshelikoptern. <br/><br/>KlinikKurt samt V&aring;rdcentralKurt st&auml;nger den 8 juni f&ouml;r VT14. <br/><br/>F&ouml;r mer information, bes&ouml;k <a href="#" id=kkkk target="_blank" rel="external">klinikkurt.se</a> eller <a href="#" id=kksdr>studier&aring;det.se</a>
+                        KlinikKurt och V&aring;rdcentralKurt &auml;r kursv&auml;rderingar f&ouml;r de kliniska placeringarna p&aring; l&auml;karprogrammet i Uppsala.<br/><br/>Genom att utv&auml;rdera dina placeringar bidrar du till att f&ouml;rb&auml;ttra den kliniska undervisningen samt den kliniska handledningen. Dessutom har du m&ouml;jlighet att delta i KlinikKurt/V&aring;rdcentralKurt-lotteriet d&auml;r h&ouml;gsta vinsten &auml;r en tur med intensivv&aring;rdshelikoptern. <br/><br/>KlinikKurt samt V&aring;rdcentralKurt st&auml;nger den 18 januari f&ouml;r HT14. <br/><br/>F&ouml;r mer information, bes&ouml;k <a href="#" id=kkkk target="_blank" rel="external">klinikkurt.se</a> eller <a href="#" id=kksdr>studier&aring;det.se</a>
                     </div>
                     <div id="omappdiv" class="animatedFast fadeIn" style="display:none;width:100%;">
                         Den h&auml;r appen &auml;r utvecklad av <a href="#" id=apptw>Appanaget</a> för läkarprogrammet i Uppsala. Den fortlöpande utvecklingen sköts av läkarprogrammets IT-bevakare<br><br>Stort tack till Ahsan Shahzad p&aring; MedFarm DoIT som bist&aring;tt med hj&auml;lp och anpassningar f&ouml;r att underl&auml;tta utvecklandet och kompatibiliteten med Kurt-systemet.<br><br>Om du har uppt&auml;ckt en bugg, har en idé som kan f&ouml;rb&auml;ttra appen eller bara sm&aring;prata, h&ouml;r av dig till <a href="mailto:it-bevakare@msr.studorg.uu.se" target="_blank">it-bevakare@msr.studorg.uu.se</a>
@@ -129,75 +127,80 @@
                 </div><!-- /navbar -->
 
                 <script>
-                    function tabFHandler() {
-                        $("li > .greentab").removeClass('greentab');
-                        $("#tabF").addClass('greentab');
-                        $("#omkkdiv").hide();
-                        $("#omappdiv").hide();
-                        $.mobile.silentScroll(0)
-                        $("#ommsrdiv").show();
-                        $("#omkkt").hide();
-                        $("#omappt").hide();
-                        $("#ommsrt").show();
-                    }
-                    function tabGHandler() {
-                        $("li > .greentab").removeClass('greentab');
-                        $("#tabG").addClass('greentab');
-                        $("#omappdiv").hide();
-                        $("#ommsrdiv").hide();
-                        $.mobile.silentScroll(0)
-                        $("#omkkdiv").show();
-                        $("#omappt").hide();
-                        $("#ommsrt").hide();
-                        $("#omkkt").show();
-                    }
-                    function tabHHandler() {
-                        $("li > .greentab").removeClass('greentab');
-                        $("#tabH").addClass('greentab');
-                        $("#omkkdiv").hide();
-                        $("#ommsrdiv").hide();
-                        $.mobile.silentScroll(0)
-                        $("#omappdiv").show();
-                        $("#omkkt").hide();
-                        $("#ommsrt").hide();
-                        $("#omappt").show();
-                    }
-                    function extLink(link) {
-                        navigator.notification.confirm(
-                                link + ' kommer att \366ppnas i din webbl\344sare, \344r du s\344ker p\345 att du vill forts\344tta?', // message
-                                openLink, // callback to invoke with index of button pressed
-                                'L\344mna appen?', // title
-                                'Ja,Nej' // buttonLabels
-                                );
-                        function openLink(button) {
-                            if (button === 1) {
-                                window.open(link, '_system');
-                            }
-                        }
-                    }
-                    $("#tabF").on('tap', tabFHandler);
-                    $("#tabG").on('tap', tabGHandler);
-                    $("#tabH").on('tap', tabHHandler);
-                    $("#kksdr").on('tap', function() {
-                        extLink('http://www.studieradet.se');
-                    });
-                    $("#msrsdr").on('tap', function() {
-                        extLink('http://www.studieradet.se');
-                    });
-                    $("#kkkk").on('tap', function() {
-                        extLink('http://www.klinikkurt.se');
-                    });
-                    $("#apptw").on('tap', function() {
-                        extLink('http://www.appanaget.se');
-                    });
-                    $("#appanaget").on('tap', function() {
-                        $("#appanaget").addClass('bounce').delay(1600).queue(function() {
-                            extLink('http://www.appanaget.se');
-                        });
-                    });
-                    $("#msrordf").on('tap', function() {
-                        extLink('mailto:ordf@msr.studorg.uu.se');
-                    });
+					function tabFHandler() {
+						$("li > .greentab").removeClass('greentab');
+						$("#tabF").addClass('greentab');
+						$("#omkkdiv").hide();
+						$("#omappdiv").hide();
+						$.mobile.silentScroll(0)
+						$("#ommsrdiv").show();
+						$("#omkkt").hide();
+						$("#omappt").hide();
+						$("#ommsrt").show();
+					}
+
+					function tabGHandler() {
+						$("li > .greentab").removeClass('greentab');
+						$("#tabG").addClass('greentab');
+						$("#omappdiv").hide();
+						$("#ommsrdiv").hide();
+						$.mobile.silentScroll(0)
+						$("#omkkdiv").show();
+						$("#omappt").hide();
+						$("#ommsrt").hide();
+						$("#omkkt").show();
+					}
+
+					function tabHHandler() {
+						$("li > .greentab").removeClass('greentab');
+						$("#tabH").addClass('greentab');
+						$("#omkkdiv").hide();
+						$("#ommsrdiv").hide();
+						$.mobile.silentScroll(0)
+						$("#omappdiv").show();
+						$("#omkkt").hide();
+						$("#ommsrt").hide();
+						$("#omappt").show();
+					}
+
+					function extLink(link) {
+						navigator.notification.confirm(link + ' kommer att \366ppnas i din webbl\344sare, \344r du s\344ker p\345 att du vill forts\344tta?', // message
+						openLink, // callback to invoke with index of button pressed
+						'L\344mna appen?', // title
+						'Ja,Nej' // buttonLabels
+						);
+						function openLink(button) {
+							if (button === 1) {
+								window.open(link, '_system');
+							}
+						}
+
+					}
+
+
+					$("#tabF").on('tap', tabFHandler);
+					$("#tabG").on('tap', tabGHandler);
+					$("#tabH").on('tap', tabHHandler);
+					$("#kksdr").on('tap', function() {
+						extLink('http://www.studieradet.se');
+					});
+					$("#msrsdr").on('tap', function() {
+						extLink('http://www.studieradet.se');
+					});
+					$("#kkkk").on('tap', function() {
+						extLink('http://www.klinikkurt.se');
+					});
+					$("#apptw").on('tap', function() {
+						extLink('http://www.appanaget.se');
+					});
+					$("#appanaget").on('tap', function() {
+						$("#appanaget").addClass('bounce').delay(1600).queue(function() {
+							extLink('http://www.appanaget.se');
+						});
+					});
+					$("#msrordf").on('tap', function() {
+						extLink('mailto:ordf@msr.studorg.uu.se');
+					});
                 </script>
             </div>
         </div>
@@ -273,85 +276,89 @@
                 </div>
             </div>
             <script>
-                $("#vftbtn").on('tap', vadfyllterminTapHandler);
-                function vadfyllterminTapHandler(event) {
-                    console.log('termintap');
-                    if (VadFyllt === "jag") {
-                        console.log('vadfyllttermintap');
-                        window.VadFyllt = "termin";
-                        $("#vfjcont").addClass('fadeOut').delay(750).queue(function() {
-                            $(this).hide();
-                            $(this).dequeue();
-                        });
-                        $("#vfjtitle").addClass('fadeOut').delay(750).queue(function() {
-                            $(this).hide();
-                            $(this).dequeue();
-                        });
-                        $("#tabD").removeClass('yellowtab');
-                        $("#vftcont").delay(751).queue(function() {
-                            $(this).removeClass('fadeOut').addClass('fadeIn').show();
-                            $(this).dequeue();
-                        });
-                        $("#vfttitle").delay(751).queue(function() {
-                            $(this).removeClass('fadeOut').addClass('fadeIn').show();
-                            $(this).dequeue();
-                        });
-                        $("#tabE").addClass('yellowtab');
-                        /* $.mobile.showPageLoadingMsg();
-                         setTimeout(function () {
-                         $("#newcont").addClass('bounceOutDown');
-                         setTimeout(function () {
-                         $.mobile.changePage("#vadfyllttermin", {
-                         transition: "fade"
-                         }); 
-                         setTimeout(function () {
-                         $("#newcont").removeClass('bounceOutDown')
-                         }, 1000);
-                         }, 0);
-                         window.VadFyllt = "termin";
-                         }, 0);
-                         */
-                        e.stopImmediatePropagation();
-                        return false;
-                    } else {
-                        console.log('nope');
-                    }
-                }
-                $("#vfjbtn").on('tap', vadfylljagTapHandler);
-                function vadfylljagTapHandler(event) {
-                    console.log('jagtap');
-                    if (VadFyllt === "termin") {
-                        window.VadFyllt = "jag";
-                        console.log('vadfylltjagtap');
-                        $("#vftcont").addClass('fadeOut').delay(750).queue(function() {
-                            $(this).hide();
-                            $(this).dequeue();
-                        });
-                        $("#vfttitle").addClass('fadeOut').delay(750).queue(function() {
-                            $(this).hide();
-                            $(this).dequeue();
-                        });
-                        $("#tabE").removeClass('yellowtab');
-                        $("#vfjcont").delay(751).queue(function() {
-                            $(this).removeClass('fadeOut').addClass('fadeIn').show();
-                            $(this).dequeue();
-                        });
-                        $("#vfjtitle").delay(751).queue(function() {
-                            $(this).removeClass('fadeOut').addClass('fadeIn').show();
-                            $(this).dequeue();
-                        });
-                        $("#tabD").addClass('yellowtab');
-                        e.stopImmediatePropagation();
-                        return false;
-                    } else {
-                        console.log('nope');
-                    }
-                }
-                $("[data-position='fixed']").fixedtoolbar({
-                    tapToggle: false,
-                    updatePagePadding: true,
-                    visibleOnPageShow: true
-                });
+				$("#vftbtn").on('tap', vadfyllterminTapHandler);
+				function vadfyllterminTapHandler(event) {
+					console.log('termintap');
+					if (VadFyllt === "jag") {
+						console.log('vadfyllttermintap');
+						window.VadFyllt = "termin";
+						$("#vfjcont").addClass('fadeOut').delay(750).queue(function() {
+							$(this).hide();
+							$(this).dequeue();
+						});
+						$("#vfjtitle").addClass('fadeOut').delay(750).queue(function() {
+							$(this).hide();
+							$(this).dequeue();
+						});
+						$("#tabD").removeClass('yellowtab');
+						$("#vftcont").delay(751).queue(function() {
+							$(this).removeClass('fadeOut').addClass('fadeIn').show();
+							$(this).dequeue();
+						});
+						$("#vfttitle").delay(751).queue(function() {
+							$(this).removeClass('fadeOut').addClass('fadeIn').show();
+							$(this).dequeue();
+						});
+						$("#tabE").addClass('yellowtab');
+						/* $.mobile.showPageLoadingMsg();
+						 setTimeout(function () {
+						 $("#newcont").addClass('bounceOutDown');
+						 setTimeout(function () {
+						 $.mobile.changePage("#vadfyllttermin", {
+						 transition: "fade"
+						 });
+						 setTimeout(function () {
+						 $("#newcont").removeClass('bounceOutDown')
+						 }, 1000);
+						 }, 0);
+						 window.VadFyllt = "termin";
+						 }, 0);
+						 */
+						e.stopImmediatePropagation();
+						return false;
+					} else {
+						console.log('nope');
+					}
+				}
+
+
+				$("#vfjbtn").on('tap', vadfylljagTapHandler);
+				function vadfylljagTapHandler(event) {
+					console.log('jagtap');
+					if (VadFyllt === "termin") {
+						window.VadFyllt = "jag";
+						console.log('vadfylltjagtap');
+						$("#vftcont").addClass('fadeOut').delay(750).queue(function() {
+							$(this).hide();
+							$(this).dequeue();
+						});
+						$("#vfttitle").addClass('fadeOut').delay(750).queue(function() {
+							$(this).hide();
+							$(this).dequeue();
+						});
+						$("#tabE").removeClass('yellowtab');
+						$("#vfjcont").delay(751).queue(function() {
+							$(this).removeClass('fadeOut').addClass('fadeIn').show();
+							$(this).dequeue();
+						});
+						$("#vfjtitle").delay(751).queue(function() {
+							$(this).removeClass('fadeOut').addClass('fadeIn').show();
+							$(this).dequeue();
+						});
+						$("#tabD").addClass('yellowtab');
+						e.stopImmediatePropagation();
+						return false;
+					} else {
+						console.log('nope');
+					}
+				}
+
+
+				$("[data-position='fixed']").fixedtoolbar({
+					tapToggle : false,
+					updatePagePadding : true,
+					visibleOnPageShow : true
+				});
             </script>
         </div>
         <!-- End of VadFyllt pages -->
@@ -359,7 +366,7 @@
         <div data-role="page" id="vcpage">
             <div data-role="header" data-theme="d" data-position="fixed" data-tap-toggle="false">
                 <a href="#" data-role="button" onclick="TillHem();" data-theme="d" data-icon="arrow-l">Start</a>
-                <h4 style="white-space: normal;width:120%;margin-left:-20px;">VC-Kurt VT14</h4>
+                <h4 style="white-space: normal;width:120%;margin-left:-20px;">VC-Kurt HT14</h4>
             </div>
             <div data-role="content" id="vccont" style="padding-top:20px; width: 100%; display:block;" class="animated fadeIn">
 
@@ -388,46 +395,58 @@
                 </div>
 
                 <form id="vckurtform" name="vckurtform" method="POST" target="result">
-                    <input type="hidden" name="id" value="6021" /><input type="hidden" name="noframe" value="" />
+                    <input type="hidden" name="id" value="6564" /><input type="hidden" name="noframe" value="" />
                     <div class="questioncontainer">
                         2.&#9;V&aring;rdcentral
                         <select name="q1" id="vcq2" data-theme="d">
                             <option value="null"> -- V&auml;lj alternativ -- </option>
+                            Aleris Barncentrum och vårdcentral
+                            Aleris vårdcentral Nyby
                             <option id="vcq2v1" value="1" >Alunda v&aring;rdcentral</option>
                             <option id="vcq2v2" value="2" >Aros l&auml;karmottagning</option>
-                            <option id="vcq2v3" value="3" >Barncentrum i Luthagen</option>
+                            <option id="vcq2v3" value="3" ></option>
+                            Bålsta Doktorn
                             <option id="vcq2v4" value="4" >B&aring;lstadoktorn</option>
-                            <option id="vcq2v5" value="5" >B&aring;lsta v&aring;rdcentral</option>
+                            <option id="vcq2v5" value="5" ></option>
+                            Capio vårdcentral Enköping
+							Capio vårdcentral Liljeforstorg
+							Capio vårdcentral Sävja
                             <option id="vcq2v6" value="6" >Dr Wahlunds l&auml;karmottagning</option>
                             <option id="vcq2v7" value="7" >Ekeby h&auml;lsocenter</option>
-                            <option id="vcq2v8" value="8" >Enk&ouml;pings v&aring;rdcentral (carema)</option>
+                            Ekeby hälsocentral
+                            Enköpings husläkarcentrum
+							Enköpings husläkarcentrum 
+                            <option id="vcq2v8" value="8" ></option>
                             <option id="vcq2v9" value="9" >Enk&ouml;pingsh&auml;lsan</option>
                             <option id="vcq2v10" value="10" >Eriksbergs v&aring;rdcentral</option>
                             <option id="vcq2v11" value="11" >Familjedoktorn</option>
-                            <option id="vcq2v12" value="12" >Fj&auml;rdhundra</option>
+                            Familjeläkarna Bålsta
+                            <option id="vcq2v12" value="12" >Fj&auml;rdhundra vårdcentral</option>
                             <option id="vcq2v13" value="13" >Flogsta v&aring;rdcentral</option>
                             <option id="vcq2v14" value="14" >F&aring;lhagens v&aring;rdcentral</option>
                             <option id="vcq2v15" value="15" >Gimo v&aring;rdcentral</option>
                             <option id="vcq2v16" value="16" >Gottsunda v&aring;rdcentral</option>
                             <option id="vcq2v17" value="17" >Heby v&aring;rdcentral</option>
-                            <option id="vcq2v18" value="18" >Husl&auml;karcentrum Enk&ouml;ping</option>
-                            <option id="vcq2v19" value="19" >Husl&auml;kargruppen Wallingatan</option>
+                            Husläkargruppen Luthagsgården
+                            <option id="vcq2v18" value="18" ></option>
+                            <option id="vcq2v19" value="19" ></option>
                             <option id="vcq2v20" value="20" >H&auml;lsohuset i Enk&ouml;ping</option>
-                            <option id="vcq2v21" value="21" >Ingrid Maries l&auml;karmottagning</option>
+                            <option id="vcq2v21" value="21" ></option>
                             <option id="vcq2v22" value="22" >Knivsta l&auml;kargrupp</option>
                             <option id="vcq2v23" value="23" >Knivsta v&aring;rdcentral</option>
-                            <option id="vcq2v24" value="24" >Knutby v&aring;rdcentral</option>
+                            <option id="vcq2v24" value="24" ></option>
                             <option id="vcq2v25" value="25" >Kungsg&auml;rdets v&aring;rdcentral</option>
                             <option id="vcq2v26" value="26" >K&aring;boh&auml;lsan</option>
-                            <option id="vcq2v27" value="27" >Liljeforstorgs v&aring;rdcentral</option>
-                            <option id="vcq2v28" value="28" >L&auml;nna v&aring;rdcentral</option>
-                            <option id="vcq2v29" value="29" >Nyby v&aring;rdcentral</option>
-                            <option id="vcq2v30" value="30" >Oxbackens v&aring;rdcentral, V&auml;ster&aring;s</option>
+                            <option id="vcq2v27" value="27" ></option>
+                            <option id="vcq2v28" value="28" ></option>
+                            <option id="vcq2v29" value="29" ></option>
+                            <option id="vcq2v30" value="30" ></option>
+                            Rasbo vårdcentral
                             <option id="vcq2v31" value="31" >Samariterhemmets v&aring;rdcentral</option>
                             <option id="vcq2v32" value="32" >Skutsk&auml;rs v&aring;rdcentral</option>
                             <option id="vcq2v33" value="33" >Storvreta v&aring;rdcentral</option>
                             <option id="vcq2v34" value="34" >Svartb&auml;ckens v&aring;rdcentral</option>
-                            <option id="vcq2v35" value="35" >S&auml;vja v&aring;rdcentral</option>
+                            <option id="vcq2v35" value="35" ></option>
                             <option id="vcq2v36" value="36" >S&ouml;dertulls h&auml;lsocentral, G&auml;vle</option>
                             <option id="vcq2v37" value="37" >Tierps v&aring;rdcentral</option>
                             <option id="vcq2v38" value="38" >Ture &Aring;landers l&auml;karpraktik</option>
@@ -772,15 +791,16 @@
 
                 </form>
             </div>
-            <script type='text/javascript'>//<![CDATA[
+            <script type='text/javascript'>
+				//<![CDATA[
 
-                //]]>
+				//]]>
             </script>
             <script>
-                if (typeof jQuery == 'undefined') {
-                    navigator.notification.alert("N\345gonting har g\345tt snett. Om felet uppstod n\344r du skickade in en utv\344rdering s\345 kommer du att beh\366va skicka in den igen. Om felet kvarst\345r s\345 f\345r du hemskt g\344rna rapportera in det.", null, "Attans!", "OK");
-                    location.replace('index.html');
-                }
+				if ( typeof jQuery == 'undefined') {
+					navigator.notification.alert("N\345gonting har g\345tt snett. Om felet uppstod n\344r du skickade in en utv\344rdering s\345 kommer du att beh\366va skicka in den igen. Om felet kvarst\345r s\345 f\345r du hemskt g\344rna rapportera in det.", null, "Attans!", "OK");
+					location.replace('index.html');
+				}
             </script>
         </div>
         <!-- End of VCK -->
@@ -788,7 +808,7 @@
         <div data-role="page" id="kkpage">
             <div data-role="header" data-theme="f" data-position="fixed" data-tap-toggle="false">
                 <a href="#" data-role="button" onclick="TillHem();" data-theme="f" data-icon="arrow-l">Start</a>
-                <h4 style="white-space: normal;width:120%;margin-left:-20px;">KlinikKurt VT14</h4>
+                <h4 style="white-space: normal;width:120%;margin-left:-20px;">KlinikKurt HT14</h4>
             </div>
             <div data-role="content" id="kkcont" style="padding-bottom:30px;">
                 <br>
@@ -822,7 +842,7 @@
                 </form>
 
                 <form id="klinikkurt" method="POST" target="result" acn="https://doit.medfarm.uu.se/script/kurt2/receive.php" accept-charset="ISO-8859-1" >
-                    <input type="hidden" name="id" value="6019" />
+                    <input type="hidden" name="id" value="6562" />
                     <input type="hidden" name="noframe" value="" />
                     <div class="questioncontainer" style="padding-top:10px;">
                         <p id="placercont" class="">1b.&#9;Placering</p><br />
@@ -837,84 +857,83 @@
                                 <input type="radio" name="q1" id="kkq1v3" value="3"  data-theme="f"/>
                                 <label for="kkq1v3" >Hj&auml;rta-k&auml;rl I</label>
                                 <input type="radio" name="q1" id="kkq1v4" value="4"  data-theme="f"/>
-                                <label for="kkq1v4">Lungsjukdomar</label>
+                                <label for="kkq1v4">Lungmedicin</label>
                             </div>        
 
                             <div id="kkt6" class="animated bounceInUp" data-role="controlgroup">
                                 <input type="radio" name="q1" id="kkq1v5" value="5" data-theme="f"/>
                                 <label for="kkq1v5">Anestesi</label>
-                                <input type="radio" name="q1" id="kkq1v131" value="6" data-theme="f"/>
-                                <label for="kkq1v131">Endokrin kirurgi</label>
-                                <input type="radio" name="q1" id="kkq1v141" value="7" data-theme="f"/>
-                                <label for="kkq1v141">Endokrin medicin</label>
-                                <input type="radio" name="q1" id="kkq1v6" value="8" data-theme="f"/>
-                                <label for="kkq1v6">Gastrokirurgi KAVA</label>
-                                <input type="radio" name="q1" id="kkq1v7" value="9" data-theme="f"/>
-                                <label for="kkq1v7">Gastrokirurgi nedre</label>
-                                <input type="radio" name="q1" id="kkq1v8" value="10" data-theme="f"/>
-                                <label for="kkq1v8">Gastrokirurgi &ouml;vre</label>
-                                <input type="radio" name="q1" id="kkq1v9" value="11" data-theme="f"/>
-                                <label for="kkq1v9">Gastromedicin</label>
-                                <input type="radio" name="q1" id="kkq1v10" value="12" data-theme="f"/>
-                                <label for="kkq1v10">Kardiologi</label>
-                                <input type="radio" name="q1" id="kkq1v11" value="13" data-theme="f"/>
-                                <label for="kkq1v11">K&auml;rlkirurgi</label>
-                                <input type="radio" name="q1" id="kkq1v12" value="14" data-theme="f"/>
-                                <label for="kkq1v12">Thoraxkirurgi</label>
+                                <input type="radio" name="q1" id="kkq1v6" value="6" data-theme="f"/>
+                                <label for="kkq1v6">Endokrin kirurgi</label>
+                                <input type="radio" name="q1" id="kkq1v7" value="7" data-theme="f"/>
+                                <label for="kkq1v7">Endokrin medicin</label>
+                                <input type="radio" name="q1" id="kkq1v8" value="8" data-theme="f"/>
+                                <label for="kkq1v8">Gastrokirurgi KAVA</label>
+                                <input type="radio" name="q1" id="kkq1v9" value="9" data-theme="f"/>
+                                <label for="kkq1v9">Gastrokirurgi nedre</label>
+                                <input type="radio" name="q1" id="kkq1v10" value="10" data-theme="f"/>
+                                <label for="kkq1v10">Gastrokirurgi &ouml;vre</label>
+                                <input type="radio" name="q1" id="kkq1v11" value="11" data-theme="f"/>
+                                <label for="kkq1v11">Gastromedicin</label>
+                                <input type="radio" name="q1" id="kkq1v12" value="12" data-theme="f"/>
+                                <label for="kkq1v12">Kardiologi</label>
+                                <input type="radio" name="q1" id="kkq1v13" value="13" data-theme="f"/>
+                                <label for="kkq1v13">K&auml;rlkirurgi</label>
+                                <input type="radio" name="q1" id="kkq1v14" value="14" data-theme="f"/>
+                                <label for="kkq1v14">Thoraxkirurgi</label>
                             </div>    
 
                             <div id="kkt7" class="animated bounceInUp" data-role="controlgroup">
-                                <input type="radio" name="q1" id="kkq1v13" value="15" data-theme="f"/>
-                                <label for="kkq1v13">Endokrin kirurgi</label>
-                                <input type="radio" name="q1" id="kkq1v14" value="16" data-theme="f"/>
-                                <label for="kkq1v14">Endokrin medicin</label>
-                                <input type="radio" name="q1" id="kkq1v15" value="17" data-theme="f"/>
+                                <input type="radio" name="q1" id="kkq1v15" value="15" data-theme="f"/>
                                 <label for="kkq1v15">Hud</label>
-                                <input type="radio" name="q1" id="kkq1v201" value="18" data-theme="f"/>
-                                <label for="kkq1v201">Onkologi/Hematologi</label>
-                                <input type="radio" name="q1" id="kkq1v16" value="19" data-theme="f"/>
-                                <label for="kkq1v16">Ortopedi</label>
-                                <input type="radio" name="q1" id="kkq1v21" value="20" data-theme="f"/>
-                                <label for="kkq1v21">Urologi</label>
-                                <input type="radio" name="q1" id="kkq1v17" value="21" data-theme="f"/>
-                                <label for="kkq1v17">Reumatologi</label>
+                                <input type="radio" name="q1" id="kkq1v16" value="16" data-theme="f"/>
+                                <label for="kkq1v16">Njurmedicin</label>
+                                <input type="radio" name="q1" id="kkq1v17" value="17" data-theme="f"/>
+                                <label for="kkq1v17">Ortopedi</label>
+                                <input type="radio" name="q1" id="kkq1v18" value="18" data-theme="f"/>
+                                <label for="kkq1v18">Reumatologi</label>
+                                <input type="radio" name="q1" id="kkq1v19" value="19" data-theme="f"/>
+                                <label for="kkq1v19">Tumörsjukdomar</label>
+                                <input type="radio" name="q1" id="kkq1v20" value="20" data-theme="f"/>
+                                <label for="kkq1v20">Urologi</label>
+       
                             </div>        
 
                             <div id="kkt8" class="animated bounceInUp" data-role="controlgroup">
-                                <input type="radio" name="q1" id="kkq1v18" value="22" data-theme="f"/>
-                                <label for="kkq1v18">Infektion</label>
-                                <input type="radio" name="q1" id="kkq1v19" value="23" data-theme="f"/>
-                                <label for="kkq1v19">Njurmedicin</label>
-                                <input type="radio" name="q1" id="kkq1v20" value="24" data-theme="f"/>
-                                <label for="kkq1v20">Onkologi/Hematologi</label>
-                                <input type="radio" name="q1" id="kkq1v212" value="25" data-theme="f"/>
-                                <label for="kkq1v212">Urologi</label>
+                                <input type="radio" name="q1" id="kkq1v21" value="21" data-theme="f"/>
+                                <label for="kkq1v21">Infektion</label>
+       							 <input type="radio" name="q1" id="kkq1v22" value="22" data-theme="f"/>
+                                <label for="kkq1v22">Njurmedicin</label>
+                                <input type="radio" name="q1" id="kkq1v23" value="23" data-theme="f"/>
+                                <label for="kkq1v23">Onkologi/Hematologi</label>
+                                <input type="radio" name="q1" id="kkq1v24" value="24" data-theme="f"/>
+                                <label for="kkq1v24">Urologi</label>
                             </div>        
 
                             <div id="kkt9" class="animated bounceInUp" data-role="controlgroup">
-                                <input type="radio" name="q1" id="kkq1v22" value="26" data-theme="f"/>
-                                <label for="kkq1v22">Gynekologi</label>
-                                <input type="radio" name="q1" id="kkq1v23" value="27" data-theme="f"/>
-                                <label for="kkq1v23">Neurologi</label>
-                                <input type="radio" name="q1" id="kkq1v24" value="28" data-theme="f"/>
-                                <label for="kkq1v24">Obstetrik</label>
-                                <input type="radio" name="q1" id="kkq1v25" value="29" data-theme="f"/>
-                                <label for="kkq1v25">Pediatrik</label>
-                                <input type="radio" name="q1" id="kkq1v26" value="30" data-theme="f"/>
-                                <label for="kkq1v26">Psykiatri</label>
-                                <input type="radio" name="q1" id="kkq1v27" value="31" data-theme="f"/>
-                                <label for="kkq1v27">&Ouml;gon</label>
-                                <input type="radio" name="q1" id="kkq1v28" value="32" data-theme="f"/>
-                                <label for="kkq1v28">&Ouml;ron-n&auml;sa-hals</label>
+                                <input type="radio" name="q1" id="kkq1v25" value="25" data-theme="f"/>
+                                <label for="kkq1v25">Gynekologi</label>
+                                <input type="radio" name="q1" id="kkq1v26" value="26" data-theme="f"/>
+                                <label for="kkq1v26">Neurologi</label>
+                                <input type="radio" name="q1" id="kkq1v27" value="27" data-theme="f"/>
+                                <label for="kkq1v27">Obstetrik</label>
+                                <input type="radio" name="q1" id="kkq1v28" value="28" data-theme="f"/>
+                                <label for="kkq1v28">Pediatrik</label>
+                                <input type="radio" name="q1" id="kkq1v29" value="29" data-theme="f"/>
+                                <label for="kkq1v29">Psykiatri</label>
+                                <input type="radio" name="q1" id="kkq1v30" value="30" data-theme="f"/>
+                                <label for="kkq1v30">&Ouml;gon</label>
+                                <input type="radio" name="q1" id="kkq1v31" value="31" data-theme="f"/>
+                                <label for="kkq1v31">&Ouml;ron-n&auml;sa-hals</label>
                             </div>        
 
                             <div id="kkt10" class="animated bounceInUp" data-role="controlgroup">
-                                <input type="radio" name="q1" id="kkq1v29" value="33" data-theme="f"/>
-                                <label for="kkq1v29">Gynekologi</label>
-                                <input type="radio" name="q1" id="kkq1v30" value="34" data-theme="f"/>
-                                <label for="kkq1v30">Obstetrik</label>
-                                <input type="radio" name="q1" id="kkq1v31" value="35" data-theme="f"/>
-                                <label for="kkq1v31">Pediatrik</label>
+                                <input type="radio" name="q1" id="kkq1v32" value="32" data-theme="f"/>
+                                <label for="kkq1v32">Gynekologi</label>
+                                <input type="radio" name="q1" id="kkq1v33" value="33" data-theme="f"/>
+                                <label for="kkq1v33">Obstetrik</label>
+                                <input type="radio" name="q1" id="kkq1v34" value="34" data-theme="f"/>
+                                <label for="kkq1v34">Pediatrik</label>
                             </div></fieldset>
                         <br /></div>
 
@@ -923,35 +942,31 @@
                         <div data-role="fieldcontain">
                             <select name="q2" id="kkq2" data-theme="f">
                                 <option value="null"> -- V&auml;lj alternativ -- </option>
-                                <option id="kkq2v1" value="1" >Arvika</option>
-                                <option id="kkq2v2" value="2" >Avesta</option>
-                                <option id="kkq2v3" value="3" >Bolln&auml;s</option>
-                                <option id="kkq2v4" value="4" >Enk&ouml;ping</option>
-                                <option id="kkq2v5" value="5" >Eskilstuna</option>
-                                <option id="kkq2v6" value="6" >Falun</option>
-                                <option id="kkq2v7" value="7" >G&auml;vle</option>
-                                <option id="kkq2v8" value="8" >Halmstad</option>
-                                <option id="kkq2v9" value="9" >Hudiksvall</option>
-                                <option id="kkq2v10" value="10" >Karlskoga</option>
-                                <option id="kkq2v11" value="11" >Karlstad</option>
-                                <option id="kkq2v12" value="12" >K&ouml;ping</option>
-                                <option id="kkq2v13" value="13" >Lindesberg</option>
-                                <option id="kkq2v14" value="14" >Lule&aring;</option>
+                                <option id="kkq2v1" value="1" >Avesta</option>
+                                <option id="kkq2v2" value="2" >Bolln&auml;s</option>
+                                <option id="kkq2v3" value="3" >Enk&ouml;ping</option>
+                                <option id="kkq2v4" value="4" >Eskilstuna</option>
+                                <option id="kkq2v5" value="5" >Falun</option>
+                                <option id="kkq2v6" value="6" >G&auml;vle</option>
+                                <option id="kkq2v7" value="7" >Halmstad</option>
+                                <option id="kkq2v8" value="8" >Hudiksvall</option>
+                                <option id="kkq2v9" value="9" >Karlskoga</option>
+                                <option id="kkq2v10" value="10" >Karlstad</option>
+                                <option id="kkq2v11" value="11" >K&ouml;ping</option>
+                                <option id="kkq2v12" value="12" >Ludvika</option>
+                                <option id="kkq2v13" value="13" >Mora</option>
+                                <option id="kkq2v14" value="14" >Nyk&ouml;ping</option>
                                 <option id="kkq2v15" value="15" >Mariehamn</option>
-                                <option id="kkq2v16" value="16" >Mora</option>
-                                <option id="kkq2v17" value="17" >Nacka</option>
-                                <option id="kkq2v18" value="18" >Norrt&auml;lje</option>
-                                <option id="kkq2v19" value="19" >Nyk&ouml;ping</option>
-                                <option id="kkq2v20" value="20" >Sk&ouml;vde</option>
-                                <option id="kkq2v21" value="21" >Stockholm</option>
-                                <option id="kkq2v22" value="22" >S&auml;ter</option>
-                                <option id="kkq2v23" value="23" >Tierp</option>
-                                <option id="kkq2v24" value="24" >Uppsala</option>
-                                <option id="kkq2v25" value="25" >Visby</option>
-                                <option id="kkq2v26" value="26" >V&auml;ster&aring;s</option>
-                                <option id="kkq2v27" value="27" >&Ouml;rebro</option>
-                                <option id="kkq2v28" value="28" >&Ouml;sthammar</option>
-                                <option id="kkq2v29" value="29" >&Ouml;vriga orter</option>
+                                <option id="kkq2v16" value="16" >St:G&Ouml;ran</option>
+                                <option id="kkq2v17" value="17" >S&auml;ter</option>
+                                <option id="kkq2v18" value="18" >S&Ouml;dertälje</option>
+                                <option id="kkq2v19" value="19" >Tierp</option>
+                                <option id="kkq2v20" value="20" >Uppsala</option>
+                                <option id="kkq2v21" value="21" >Utlandsplacering</option>
+                                <option id="kkq2v22" value="22" >Visby</option>
+                                <option id="kkq2v23" value="23" >V&auml;ster&aring;s</option>
+                                <option id="kkq2v24" value="24" >&Ouml;vriga orter</option>
+                          
                             </select></div><br /></div>
                     <div id="restofkk" class="animated bounceInUp">
                         <div class="questioncontainer animated bounceInUp" id="kkfr3" style="width:100%">
@@ -1310,27 +1325,26 @@
                 <a id="tackkklink" href="#tackkkbody" style="opacity:0;width:1px;" data-prefetch></a>
             </div>​
             <script type='text/javascript'>
-                /*
-                 $().ready(function() {
-                 $.mobile.hidePageLoadingMsg();
-                 $.ajaxSetup({
-                 error: function(x, e) {
-                 $.mobile.hidePageLoadingMsg();
-                 navigator.notification.alert("Attans! Din KURTning kunde inte skickas. Kontrollera att du har internet\345tkomst och f\366rs\366k igen!", null, "Kunde inte skicka KURTning", "OK");
-                 $('#KKopendialog').removeClass('ui-disabled');
-                 }
-                 });
-                 
-                 });
-                 */
+				/*
+				 $().ready(function() {
+				 $.mobile.hidePageLoadingMsg();
+				 $.ajaxSetup({
+				 error: function(x, e) {
+				 $.mobile.hidePageLoadingMsg();
+				 navigator.notification.alert("Attans! Din KURTning kunde inte skickas. Kontrollera att du har internet\345tkomst och f\366rs\366k igen!", null, "Kunde inte skicka KURTning", "OK");
+				 $('#KKopendialog').removeClass('ui-disabled');
+				 }
+				 });
 
+				 });
+				 */
 
             </script>
             <script>
-                if (typeof jQuery == 'undefined') {
-                    navigator.notification.alert("N\345gonting har g\345tt snett. Om felet uppstod n\344r du skickade in en utv\344rdering s\345 kommer du att beh\366va skicka in den igen. Om felet kvarst\345r s\345 f\345r du hemskt g\344rna rapportera in det.", null, "Attans!", "OK");
-                    location.replace('index.html');
-                }
+				if ( typeof jQuery == 'undefined') {
+					navigator.notification.alert("N\345gonting har g\345tt snett. Om felet uppstod n\344r du skickade in en utv\344rdering s\345 kommer du att beh\366va skicka in den igen. Om felet kvarst\345r s\345 f\345r du hemskt g\344rna rapportera in det.", null, "Attans!", "OK");
+					location.replace('index.html');
+				}
             </script>
         </div>
         <!-- End of KK -->
