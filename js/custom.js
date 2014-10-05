@@ -98,7 +98,7 @@ function onDeviceReady() {
     document.addEventListener("offline", onOffline, false);
     $("#splash").show();
     
-//    window.deviceOS = device.platform;
+    window.deviceOS = device.platform;
 //    console.log(deviceOS);
 //    if (deviceOS === "DEACTIVATEDAndroid") {
 //        function initPushwoosh()
@@ -331,7 +331,7 @@ $(document).delegate("#hem", "pageinit", function(event, ui) {
                 }, 1000);
             }, 300);
         }, 5);
-        e.stopImmediatePropagation();
+        event.stopImmediatePropagation();
         return false;
     }
     $("#klinkurtnew").on('tap', klinkurtnewTapHandler);
