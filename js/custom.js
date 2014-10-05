@@ -317,7 +317,7 @@ $(document).delegate("#hem", "pageinit", function(event, ui) {
 			}, 300);
 		}, 5);
 		window.VadFyllt = "jag";
-		e.stopImmediatePropagation();
+		event.stopImmediatePropagation();
 		return false;
 	}
 
@@ -554,31 +554,41 @@ $(document).delegate("#kkpage", "pageshow", function(event) {
 		window.plugins.webviewcolor.change('#C6E0FF');
 	}
 	$.mobile.hidePageLoadingMsg();
-	// returns true if if date <= today
-	// returns false if if date > today
-	function dateBeforeNow(date) {
+	function openKurtCheckKK() {
 		// what is now?
-		var now = new Date();
-		var y = now.getYear();
-		var m = now.getMonth();
-		var d = now.getDate();
-		// format date vals
-		y += (y < 1000) ? 1900 : 0;
-		m++;
-		m = (m < 10) ? ("0" + m) : m;
-		d = (d < 10) ? ("0" + d) : d;
-		console.log((date <= parseInt(y + m + d)) ? true : false);
-		return (date <= parseInt(y + m + d)) ? true : false;
-	}
-
-	var EXPIRE_DATE = "20150118";
-
-	if (dateBeforeNow(EXPIRE_DATE)) {
-		$.mobile.changePage("#hem", {
-			transition : "flip"
+		$.ajax({
+			url : 'http://www.kk.beachtime.se/open.php',
+			data : {
+				type : "klinik"
+			},
+			dataType : 'json',
+		}).then(function(res) {
+			console.log(res);
+			switch(res) {
+			case "open":
+				return true;
+				break;
+			case "closed":
+				$.mobile.changePage("#hem", {
+					transition : "flip"
+				});
+				navigator.notification.alert("Attans! Den h\344r terminens KlinikKurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "KlinikKurt har st\344ngt!", "OK");
+				return false;
+				break;
+			case "construction":
+				$.mobile.changePage("#hem", {
+					transition : "flip"
+				});
+				navigator.notification.alert("Attans! Den h\344r terminens KlinikKurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "KlinikKurt har st\344ngt!", "OK");
+				return false;
+				break;
+			}
 		});
-		navigator.notification.alert("Attans! Den h\344r terminens KlinikKurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "KlinikKurt HT14 har st\344ngt!", "OK");
+
 	}
+
+	openKurtCheckKK();
+
 });
 
 $(document).delegate("#kkpage", "pageinit", function(event) {
@@ -895,10 +905,13 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
 	// returns true if if date <= today
 	// returns false if if date > today
 
-	function openKurtCheck() {
+	function openKurtCheckVC() {
 		// what is now?
 		$.ajax({
 			url : 'http://www.kk.beachtime.se/open.php',
+			data : {
+				type : "vc"
+			},
 			dataType : 'json',
 		}).then(function(res) {
 			console.log(res);
@@ -925,7 +938,7 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
 
 	}
 
-	openKurtCheck();
+	openKurtCheckVC();
 
 });
 $(document).delegate("#vcpage", "pageinit", function() {
