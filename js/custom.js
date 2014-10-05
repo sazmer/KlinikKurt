@@ -894,36 +894,39 @@ $(document).delegate("#vcpage", "pageshow", function(event) {
 	$.mobile.hidePageLoadingMsg();
 	// returns true if if date <= today
 	// returns false if if date > today
-	
+
 	function openKurtCheck() {
 		// what is now?
 		$.ajax({
-				url : 'http://www.kk.beachtime.se/open.php',
-				dataType : 'json',
-			}).then(function(res) {
-				 console.log(res);
-				switch(res){
-					case "open":
-					return true;
-					break;
-					case "closed":
-					navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt har st\344ngt denna termin!", "OK");
-					return false;
-					break;
-					case "construction":
-					navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt har st\344ngt pga tekniska problem!", "OK");
-					return false;
-					break;
-				}
-			});
-
-	}
-
-	if (!openKurtCheck()) {
-		$.mobile.changePage("#hem", {
-			transition : "flip"
+			url : 'http://www.kk.beachtime.se/open.php',
+			dataType : 'json',
+		}).then(function(res) {
+			console.log(res);
+			switch(res) {
+			case "open":
+				return true;
+				break;
+			case "closed":
+				$.mobile.changePage("#hem", {
+					transition : "flip"
+				});
+				navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt har st\344ngt denna termin!", "OK");
+				return false;
+				break;
+			case "construction":
+				$.mobile.changePage("#hem", {
+					transition : "flip"
+				});
+				navigator.notification.alert("Attans! Den h\344r terminens VC-Kurt har tyv\344rr st\344ngt. Om du vet med dig att den inte alls borde ha st\344ngt, kontrollera att du har den senaste uppdateringen av appen.", null, "VC-Kurt har st\344ngt pga tekniska problem!", "OK");
+				return false;
+				break;
+			}
 		});
+
 	}
+
+	openKurtCheck();
+
 });
 $(document).delegate("#vcpage", "pageinit", function() {
 
