@@ -16,7 +16,7 @@
         Medicinska Studierådet Uppsala, Appanaget
     </author>
     <access origin="*" />
-    <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="orientation" value="portrait" />
     <preference name="AutoHideSplashScreen" value="false" />
