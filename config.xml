@@ -17,8 +17,9 @@
 	<preference name="orientation" value="portrait" />
 	<preference name="AutoHideSplashScreen" value="false" />
 	<preference name="disallowOverscroll" value="true" />
-	<preference name="SplashScreenDelay" value="12000" />
+	<preference name="splash-screen-duration" value="12000" />
 	<preference name="target-device" value="handset" />
+	
 	
 	<gap:plugin name="org.apache.cordova.device" />
 	<gap:plugin name="org.apache.cordova.network-information" />
