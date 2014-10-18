@@ -61,12 +61,12 @@ console.log("1");
 var pushNotification;
 var ver = new Array();
 ver = iOSversion();
-document.addEventListener("deviceready", onDeviceReady, false);
+
 function onBodyLoad() {
 	console.log("2");
 	//    StatusBar.overlaysWebView(true);
 	navigator.splashscreen.show();
-
+document.addEventListener("deviceready", onDeviceReady, false);
 	$.mobile.page.prototype.options.domCache = false;
 
 	if (ver[0] >= 7) {
