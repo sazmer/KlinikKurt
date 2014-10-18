@@ -58,6 +58,7 @@ function iOSversion() {
 	}
 }
 
+var pushNotification;
 var ver = new Array();
 ver = iOSversion();
 
@@ -85,177 +86,233 @@ function onDeviceReady() {
 		link.rel = "stylesheet";
 		document.getElementsByTagName("head")[0].appendChild(link);
 	}
-	var pushNotification;
+	$("#app-status-ul").append('<li>deviceready event received</li>');
 
-	document.addEventListener("deviceready", function() {
-		pushNotification = window.plugins.pushNotification;
+	document.addEventListener("backbutton", function(e) {
+		$("#app-status-ul").append('<li>backbutton event received</li>');
 
-	});
-
-	pushNotification.register(successHandler, errorHandler, {
-		"senderID" : "996348093822",
-		"ecb" : "onNotification"
-	});
-	function successHandler(result) {
-		alert('result = ' + result);
-	}
-
-	function errorHandler(error) {
-		alert('error = ' + error);
-	}
-
-	function onNotification(e) {
-		$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-
-		switch( e.event ) {
-		case 'registered':
-			if (e.regid.length > 0) {
-				$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-				// Your GCM push server needs to know the regID before it can push to this device
-				// here is where you might want to send it the regID for later use.
-				console.log("regID = " + e.regid);
-			}
-			break;
-
-		case 'message':
-			// if this flag is set, this notification happened while we were in the foreground.
-			// you might want to play a sound to get the user's attention, throw up a dialog, etc.
-			if (e.foreground) {
-				$("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
-
-				// on Android soundname is outside the payload.
-				// On Amazon FireOS all custom attributes are contained within payload
-				var soundfile = e.soundname || e.payload.sound;
-				// if the notification contains a soundname, play it.
-				var my_media = new Media("/android_asset/www/" + soundfile);
-				my_media.play();
-			} else {// otherwise we were launched because the user touched a notification in the notification tray.
-				if (e.coldstart) {
-					$("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
-				} else {
-					$("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
-				}
-			}
-
-			$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
-			//Only works for GCM
-			$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
-			//Only works on Amazon Fire OS
-			$status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
-			break;
-
-		case 'error':
-			$("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
-			break;
-
-		default:
-			$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
-			break;
+		if ($("#home").length > 0) {
+			// call this to get a new token each time. don't call it to reuse existing token.
+			//pushNotification.unregister(successHandler, errorHandler);
+			e.preventDefault();
+			navigator.app.exitApp();
+		} else {
+			navigator.app.backHistory();
 		}
+	}, false);
+
+	try {
+		pushNotification = window.plugins.pushNotification;
+		$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
+		if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos') {
+			pushNotification.register(successHandler, errorHandler, {
+				"senderID" : "996348093822",
+				"ecb" : "onNotification"
+			});
+			// required!
+		} else {
+			pushNotification.register(tokenHandler, errorHandler, {
+				"badge" : "true",
+				"sound" : "true",
+				"alert" : "true",
+				"ecb" : "onNotificationAPN"
+			});
+			// required!
+		}
+	} catch(err) {
+		txt = "There was an error on this page.\n\n";
+		txt += "Error description: " + err.message + "\n\n";
+		alert(txt);
+	}
+}
+
+// handle APNS notifications for iOS
+function onNotificationAPN(e) {
+	if (e.alert) {
+		$("#app-status-ul").append('<li>push-notification: ' + e.alert + '</li>');
+		// showing an alert also requires the org.apache.cordova.dialogs plugin
+		navigator.notification.alert(e.alert);
 	}
 
-
-	$("#klinkurtnew").hide();
-	$("#vckurtnew").hide();
-	$("#ifylltnew").hide();
-	$("#omnew").hide();
-	$("#newcontcover").hide();
-	$("#newcont").height(function() {
-		$(window).height();
-	});
-	$("#newcontcover").height(function() {
-		$(window).height();
-	});
-	document.addEventListener("offline", onOffline, false);
-	$("#splash").show();
-
-	window.deviceOS = device.platform;
-
-	//    console.log(deviceOS);
-	//    if (deviceOS === "DEACTIVATEDAndroid") {
-	//        function initPushwoosh()
-	//        {
-	//            var pushNotification = window.plugins.pushNotification;
-	//            pushNotification.onDeviceReady();
-	//
-	//            pushNotification.registerDevice({projectid: "klinikkurt-push", appid: "4FAC216A216983.26700931"},
-	//            function(status) {
-	//                var pushToken = status;
-	//                console.warn('push token: ' + pushToken);
-	//            },
-	//                    function(status) {
-	//                        console.warn(JSON.stringify(['failed to register ', status]));
-	//                    }
-	//            );
-	//
-	//            document.addEventListener('push-notification', function(event) {
-	//                var title = event.notification.title;
-	//                var userData = event.notification.userdata;
-	//
-	//                if (typeof (userData) != "undefined") {
-	//                    console.warn('user data: ' + JSON.stringify(userData));
-	//                }
-	//
-	//                navigator.notification.alert(title);
-	//            });
-	//        }
-	//    } else if (deviceOS === "DEACTIVATEDiOS") {
-	//        function initPushwoosh() {
-	//            var pushNotification = window.plugins.pushNotification;
-	//            pushNotification.onDeviceReady();
-	//
-	//            pushNotification.registerDevice({alert: true, badge: true, sound: true, pw_appid: "4FAC216A216983.26700931", appname: "KlinikKurt PROD"},
-	//            function(status) {
-	//                var deviceToken = status['deviceToken'];
-	//                console.warn('registerDevice: ' + deviceToken);
-	//            },
-	//                    function(status) {
-	//                        console.warn('failed to register : ' + JSON.stringify(status));
-	//                        console.log(JSON.stringify(['failed to register ', status]));
-	//                    }
-	//            );
-	//
-	//            pushNotification.setApplicationIconBadgeNumber(0);
-	//
-	//            document.addEventListener('push-notification', function(event) {
-	//                var notification = event.notification;
-	//                navigator.notification.alert(notification.aps.alert);
-	//                pushNotification.setApplicationIconBadgeNumber(0);
-	//            });
-	//        }
-	//    } else {
-	//        console.log(deviceOS + ' did not match any filter. Thus, did not register for push notifications');
-	//    }
-	// initPushwoosh();
-
-	ranNum = Math.floor((Math.random() * 10) + 1);
-	console.log(ranNum);
-	if (ranNum === 1) {
-		window.introClass = 'bounceInLeft';
-	} else if (ranNum === 2) {
-		window.introClass = 'bounceInRight';
-	} else if (ranNum === 3) {
-		window.introClass = 'bounceInDown';
-	} else {
-		window.introClass = 'bounceInUp';
+	if (e.sound) {
+		// playing a sound also requires the org.apache.cordova.media plugin
+		var snd = new Media(e.sound);
+		snd.play();
 	}
+
+	if (e.badge) {
+		pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
+	}
+}
+
+// handle GCM notifications for Android
+function onNotification(e) {
+	$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+
+	switch( e.event ) {
+	case 'registered':
+		if (e.regid.length > 0) {
+			$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+			// Your GCM push server needs to know the regID before it can push to this device
+			// here is where you might want to send it the regID for later use.
+			console.log("regID = " + e.regid);
+		}
+		break;
+
+	case 'message':
+		// if this flag is set, this notification happened while we were in the foreground.
+		// you might want to play a sound to get the user's attention, throw up a dialog, etc.
+		if (e.foreground) {
+			$("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+
+			// on Android soundname is outside the payload.
+			// On Amazon FireOS all custom attributes are contained within payload
+			var soundfile = e.soundname || e.payload.sound;
+			// if the notification contains a soundname, play it.
+			// playing a sound also requires the org.apache.cordova.media plugin
+			var my_media = new Media("/android_asset/www/" + soundfile);
+
+			my_media.play();
+		} else {// otherwise we were launched because the user touched a notification in the notification tray.
+			if (e.coldstart)
+				$("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+			else
+				$("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+		}
+
+		$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+		//android only
+		$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+		//amazon-fireos only
+		$("#app-status-ul").append('<li>MESSAGE -> TIMESTAMP: ' + e.payload.timeStamp + '</li>');
+		break;
+
+	case 'error':
+		$("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+		break;
+
+	default:
+		$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+		break;
+	}
+}
+
+function tokenHandler(result) {
+	$("#app-status-ul").append('<li>token: ' + result + '</li>');
+	// Your iOS push server needs to know the token before it can push to this device
+	// here is where you might want to send it the token for later use.
+}
+
+function successHandler(result) {
+	$("#app-status-ul").append('<li>success:' + result + '</li>');
+}
+
+function errorHandler(error) {
+	$("#app-status-ul").append('<li>error:' + error + '</li>');
+}
+
+
+$("#klinkurtnew").hide();
+$("#vckurtnew").hide();
+$("#ifylltnew").hide();
+$("#omnew").hide();
+$("#newcontcover").hide();
+$("#newcont").height(function() {
+	$(window).height();
+});
+$("#newcontcover").height(function() {
+	$(window).height();
+});
+document.addEventListener("offline", onOffline, false);
+$("#splash").show();
+
+window.deviceOS = device.platform;
+
+//    console.log(deviceOS);
+//    if (deviceOS === "DEACTIVATEDAndroid") {
+//        function initPushwoosh()
+//        {
+//            var pushNotification = window.plugins.pushNotification;
+//            pushNotification.onDeviceReady();
+//
+//            pushNotification.registerDevice({projectid: "klinikkurt-push", appid: "4FAC216A216983.26700931"},
+//            function(status) {
+//                var pushToken = status;
+//                console.warn('push token: ' + pushToken);
+//            },
+//                    function(status) {
+//                        console.warn(JSON.stringify(['failed to register ', status]));
+//                    }
+//            );
+//
+//            document.addEventListener('push-notification', function(event) {
+//                var title = event.notification.title;
+//                var userData = event.notification.userdata;
+//
+//                if (typeof (userData) != "undefined") {
+//                    console.warn('user data: ' + JSON.stringify(userData));
+//                }
+//
+//                navigator.notification.alert(title);
+//            });
+//        }
+//    } else if (deviceOS === "DEACTIVATEDiOS") {
+//        function initPushwoosh() {
+//            var pushNotification = window.plugins.pushNotification;
+//            pushNotification.onDeviceReady();
+//
+//            pushNotification.registerDevice({alert: true, badge: true, sound: true, pw_appid: "4FAC216A216983.26700931", appname: "KlinikKurt PROD"},
+//            function(status) {
+//                var deviceToken = status['deviceToken'];
+//                console.warn('registerDevice: ' + deviceToken);
+//            },
+//                    function(status) {
+//                        console.warn('failed to register : ' + JSON.stringify(status));
+//                        console.log(JSON.stringify(['failed to register ', status]));
+//                    }
+//            );
+//
+//            pushNotification.setApplicationIconBadgeNumber(0);
+//
+//            document.addEventListener('push-notification', function(event) {
+//                var notification = event.notification;
+//                navigator.notification.alert(notification.aps.alert);
+//                pushNotification.setApplicationIconBadgeNumber(0);
+//            });
+//        }
+//    } else {
+//        console.log(deviceOS + ' did not match any filter. Thus, did not register for push notifications');
+//    }
+// initPushwoosh();
+
+ranNum = Math.floor((Math.random() * 10) + 1);
+console.log(ranNum);
+if (ranNum === 1) {
+	window.introClass = 'bounceInLeft';
+} else if (ranNum === 2) {
+	window.introClass = 'bounceInRight';
+} else if (ranNum === 3) {
+	window.introClass = 'bounceInDown';
+} else {
+	window.introClass = 'bounceInUp';
+}
+setTimeout(function() {
+	cordova.exec(null, null, "SplashScreen", "hide", []);
 	setTimeout(function() {
-		cordova.exec(null, null, "SplashScreen", "hide", []);
-		setTimeout(function() {
-			$("#omnew").addClass(introClass).show().delay(300).queue(function() {
-				$("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
-					$("#vckurtnew").addClass(introClass).show().delay(300).queue(function() {
-						$("#klinkurtnew").addClass(introClass).show().delay(300).queue(function() {
-							//                            $("#newcontcover").show().delay(1600).queue(function() {
-							$("#splash").hide();
-							$("#newcont").addClass("hemcontbg");
-							//                            });
-						});
+		$("#omnew").addClass(introClass).show().delay(300).queue(function() {
+			$("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
+				$("#vckurtnew").addClass(introClass).show().delay(300).queue(function() {
+					$("#klinkurtnew").addClass(introClass).show().delay(300).queue(function() {
+						//                            $("#newcontcover").show().delay(1600).queue(function() {
+						$("#splash").hide();
+						$("#newcont").addClass("hemcontbg");
+						//                            });
 					});
 				});
 			});
-		}, 100);
+		});
 	}, 100);
+}, 100);
 }
 
 function onOffline() {
