@@ -4,7 +4,7 @@
 	<description>Äntligen kan du fylla i KlinikKurt och VårdcentralKurt direkt från din telefon - Enklare, snabbare, smidigare, snyggare!
 
 		Denna app är endast för studenter på Läkarprogrammet vid Uppsala Universitet.
- 
+
 		KlinikKurt är en särskild utvärdering av klinisk handledning på Uppsalas läkarutbildning. Utvärderingen består av tio frågor som fylls i efter avslutad klinisk placering, såväl på Akademiska sjukhuset som på sjukhus i regionen.
 
 		VårdcentralKurt utvärderar på liknande sätt vårdcentralplaceringarna. I slutet av varje termin sammanställs resultaten och mynnar för klinikerna i Uppsala ut i en prestigefylld kliniktävling där både ära och en viss summa pengar står på spel.
@@ -31,7 +31,6 @@
 	<gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
 	<gap:plugin name="com.phonegap.plugin.statusbar" />
 	<!-- snart push -->
-	
 	<splash src="splash.png" />
 	<gap:splash src="splash.png" gap:platform="ios"/>
 	<gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
@@ -57,4 +56,8 @@
 	<icon src="icons/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
 	<icon src="icons/ios/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
 	<icon src="icons/ios/icon@2x.png" gap:platform="ios" width="114" height="114" />
+	<feature name="debug-server" required="true">
+		<param name="domain" value="http://l192.168.0.101:8080"/>
+		<param name="key" value="unique1"/>
+	</feature>
 </widget>
