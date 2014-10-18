@@ -61,11 +61,11 @@ function iOSversion() {
 var pushNotification;
 var ver = new Array();
 ver = iOSversion();
-
+document.addEventListener("deviceready", onDeviceReady, false);
 function onBodyLoad() {
 	//    StatusBar.overlaysWebView(true);
 	navigator.splashscreen.show();
-	document.addEventListener("deviceready", onDeviceReady, false);
+	
 	$.mobile.page.prototype.options.domCache = false;
 
 	if (ver[0] >= 7) {
@@ -86,6 +86,7 @@ function onDeviceReady() {
 		link.rel = "stylesheet";
 		document.getElementsByTagName("head")[0].appendChild(link);
 	}
+	console.log("men kom igen");
 	$("#app-status-ul").append('<li>deviceready event received</li>');
 
 	document.addEventListener("backbutton", function(e) {
