@@ -9,7 +9,6 @@
         <script type="text/javascript" charset="utf-8" src="js/energize-min.js"></script>
         <!-- Cordova -->
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-        <script src="PushNotification.js"></script>
         <!-- jQuery -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript"></script>
@@ -21,6 +20,11 @@
         <script src="js/custom.js"></script>
     </head>
     <body onload="onBodyLoad();" >
+    	<div id="app-status-div">
+				<ul id="app-status-ul">
+					<li>Cordova PushNotification Plugin Demo</li>
+				</ul>
+			</div>
         <div id="hem" data-role="page" data-theme="f" ontouchmove="touchMove(event);" >
             <div id="splash" style="height: 100% !important;width:100%;position: absolute;bottom: 0;left: 0;-webkit-background-size: 100% auto;z-index:20;background-position: left bottom;background-image: url('img/splash5.png');">&nbsp;</div>
             <div data-role="content" id="hemcont">

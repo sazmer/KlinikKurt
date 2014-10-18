@@ -65,7 +65,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onBodyLoad() {
 	//    StatusBar.overlaysWebView(true);
 	navigator.splashscreen.show();
-	
+
 	$.mobile.page.prototype.options.domCache = false;
 
 	if (ver[0] >= 7) {
