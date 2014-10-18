@@ -57,7 +57,7 @@
 	<icon src="icons/ios/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
 	<icon src="icons/ios/icon@2x.png" gap:platform="ios" width="114" height="114" />
 	<feature name="debug-server" required="true">
-		<param name="domain" value="http://l192.168.0.101:8080"/>
+		<param name="domain" value="http://192.168.0.101:8080"/>
 		<param name="key" value="unique1"/>
 	</feature>
 </widget>
