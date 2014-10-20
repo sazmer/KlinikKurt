@@ -57,7 +57,7 @@ function iOSversion() {
 		return [0, 0, 0];
 	}
 }
-
+var pushNotification;
 var ver = new Array();
 ver = iOSversion();
 
