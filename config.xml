@@ -30,6 +30,7 @@
 	<gap:plugin name="ihome.cordova.plugin.local-notification" />
 	<gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
 	<gap:plugin name="com.phonegap.plugin.statusbar" />
+	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 	<!-- snart push -->
 	<splash src="splash.png" />
 	<gap:splash src="splash.png" gap:platform="ios"/>
