@@ -17,7 +17,7 @@
 	<preference name="orientation" value="portrait" />
 	<preference name="AutoHideSplashScreen" value="false" />
 	<preference name="disallowOverscroll" value="true" />
-	<preference name="splash-screen-duration" value="12000" />
+
 	<preference name="target-device" value="handset" />
 	<gap:plugin name="org.apache.cordova.device" />
 	<gap:plugin name="org.apache.cordova.network-information" />
@@ -27,7 +27,7 @@
 	<gap:plugin name="org.li8.inappbrowser" version="0.1" />
 	<gap:plugin name="org.apache.cordova.device-orientation" />
 	<gap:plugin name="org.apache.cordova.console" />
-	<gap:plugin name="ihome.cordova.plugin.local-notification" />
+
 	<gap:plugin name="nl.x-services.plugins.ioswebviewcolor" />
 	<gap:plugin name="com.phonegap.plugin.statusbar" />
 	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
@@ -57,8 +57,4 @@
 	<icon src="icons/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
 	<icon src="icons/ios/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
 	<icon src="icons/ios/icon@2x.png" gap:platform="ios" width="114" height="114" />
-	<feature name="debug-server" required="true">
-		<param name="domain" value="http://192.168.0.101:8080"/>
-		<param name="key" value="unique1"/>
-	</feature>
 </widget>

@@ -47,6 +47,37 @@ function clearKK() {
 	 });*/
 	console.log('Inskickad KK3');
 }
+
+function iOSversion() {
+	if (/iP(hone|od|ad)/.test(navigator.platform)) {
+		// supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+		var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+		return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+	} else {
+		return [0, 0, 0];
+	}
+}
+
+var ver = new Array();
+ver = iOSversion();
+
+function onBodyLoad() {
+	console.log("2");
+	//    StatusBar.overlaysWebView(true);
+	navigator.splashscreen.show();
+	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", initPushwoosh, false);
+	$.mobile.page.prototype.options.domCache = false;
+
+	if (ver[0] >= 7) {
+		window.plugins.webviewcolor.change('#FFFFFF');
+		$(".ui-header .ui-title").css("padding-top", "10px");
+		$(".ui-header .ui-btn-left").css("margin-top", "10px");
+		$("#omalltitles").css("padding-top", "10px");
+		$("#omallbackbtn").css("margin-top", "10px");
+	}
+}
+
 function initPushwoosh() {
 	var pushNotification = window.plugins.pushNotification;
 
@@ -77,36 +108,6 @@ function initPushwoosh() {
 	});
 }
 
-function iOSversion() {
-	if (/iP(hone|od|ad)/.test(navigator.platform)) {
-		// supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
-		var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-		return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-	} else {
-		return [0, 0, 0];
-	}
-}
-
-var ver = new Array();
-ver = iOSversion();
-
-function onBodyLoad() {
-	console.log("2");
-	//    StatusBar.overlaysWebView(true);
-	navigator.splashscreen.show();
-document.addEventListener("deviceready", onDeviceReady, false);
-	document.addEventListener("deviceready", initPushwoosh, false);
-	$.mobile.page.prototype.options.domCache = false;
-
-	if (ver[0] >= 7) {
-		window.plugins.webviewcolor.change('#FFFFFF');
-		$(".ui-header .ui-title").css("padding-top", "10px");
-		$(".ui-header .ui-btn-left").css("margin-top", "10px");
-		$("#omalltitles").css("padding-top", "10px");
-		$("#omallbackbtn").css("margin-top", "10px");
-	}
-}
-
 function onDeviceReady() {
 	console.log("3");
 	var devicePlatform = device.platform;
@@ -117,109 +118,108 @@ function onDeviceReady() {
 		link.rel = "stylesheet";
 		document.getElementsByTagName("head")[0].appendChild(link);
 	}
-	
 
-$("#klinkurtnew").hide();
-$("#vckurtnew").hide();
-$("#ifylltnew").hide();
-$("#omnew").hide();
-$("#newcontcover").hide();
-$("#newcont").height(function() {
-	$(window).height();
-});
-$("#newcontcover").height(function() {
-	$(window).height();
-});
-document.addEventListener("offline", onOffline, false);
-$("#splash").show();
+	$("#klinkurtnew").hide();
+	$("#vckurtnew").hide();
+	$("#ifylltnew").hide();
+	$("#omnew").hide();
+	$("#newcontcover").hide();
+	$("#newcont").height(function() {
+		$(window).height();
+	});
+	$("#newcontcover").height(function() {
+		$(window).height();
+	});
+	document.addEventListener("offline", onOffline, false);
+	$("#splash").show();
 
-window.deviceOS = device.platform;
+	window.deviceOS = device.platform;
 
-//    console.log(deviceOS);
-//    if (deviceOS === "DEACTIVATEDAndroid") {
-//        function initPushwoosh()
-//        {
-//            var pushNotification = window.plugins.pushNotification;
-//            pushNotification.onDeviceReady();
-//
-//            pushNotification.registerDevice({projectid: "klinikkurt-push", appid: "4FAC216A216983.26700931"},
-//            function(status) {
-//                var pushToken = status;
-//                console.warn('push token: ' + pushToken);
-//            },
-//                    function(status) {
-//                        console.warn(JSON.stringify(['failed to register ', status]));
-//                    }
-//            );
-//
-//            document.addEventListener('push-notification', function(event) {
-//                var title = event.notification.title;
-//                var userData = event.notification.userdata;
-//
-//                if (typeof (userData) != "undefined") {
-//                    console.warn('user data: ' + JSON.stringify(userData));
-//                }
-//
-//                navigator.notification.alert(title);
-//            });
-//        }
-//    } else if (deviceOS === "DEACTIVATEDiOS") {
-//        function initPushwoosh() {
-//            var pushNotification = window.plugins.pushNotification;
-//            pushNotification.onDeviceReady();
-//
-//            pushNotification.registerDevice({alert: true, badge: true, sound: true, pw_appid: "4FAC216A216983.26700931", appname: "KlinikKurt PROD"},
-//            function(status) {
-//                var deviceToken = status['deviceToken'];
-//                console.warn('registerDevice: ' + deviceToken);
-//            },
-//                    function(status) {
-//                        console.warn('failed to register : ' + JSON.stringify(status));
-//                        console.log(JSON.stringify(['failed to register ', status]));
-//                    }
-//            );
-//
-//            pushNotification.setApplicationIconBadgeNumber(0);
-//
-//            document.addEventListener('push-notification', function(event) {
-//                var notification = event.notification;
-//                navigator.notification.alert(notification.aps.alert);
-//                pushNotification.setApplicationIconBadgeNumber(0);
-//            });
-//        }
-//    } else {
-//        console.log(deviceOS + ' did not match any filter. Thus, did not register for push notifications');
-//    }
-// initPushwoosh();
+	//    console.log(deviceOS);
+	//    if (deviceOS === "DEACTIVATEDAndroid") {
+	//        function initPushwoosh()
+	//        {
+	//            var pushNotification = window.plugins.pushNotification;
+	//            pushNotification.onDeviceReady();
+	//
+	//            pushNotification.registerDevice({projectid: "klinikkurt-push", appid: "4FAC216A216983.26700931"},
+	//            function(status) {
+	//                var pushToken = status;
+	//                console.warn('push token: ' + pushToken);
+	//            },
+	//                    function(status) {
+	//                        console.warn(JSON.stringify(['failed to register ', status]));
+	//                    }
+	//            );
+	//
+	//            document.addEventListener('push-notification', function(event) {
+	//                var title = event.notification.title;
+	//                var userData = event.notification.userdata;
+	//
+	//                if (typeof (userData) != "undefined") {
+	//                    console.warn('user data: ' + JSON.stringify(userData));
+	//                }
+	//
+	//                navigator.notification.alert(title);
+	//            });
+	//        }
+	//    } else if (deviceOS === "DEACTIVATEDiOS") {
+	//        function initPushwoosh() {
+	//            var pushNotification = window.plugins.pushNotification;
+	//            pushNotification.onDeviceReady();
+	//
+	//            pushNotification.registerDevice({alert: true, badge: true, sound: true, pw_appid: "4FAC216A216983.26700931", appname: "KlinikKurt PROD"},
+	//            function(status) {
+	//                var deviceToken = status['deviceToken'];
+	//                console.warn('registerDevice: ' + deviceToken);
+	//            },
+	//                    function(status) {
+	//                        console.warn('failed to register : ' + JSON.stringify(status));
+	//                        console.log(JSON.stringify(['failed to register ', status]));
+	//                    }
+	//            );
+	//
+	//            pushNotification.setApplicationIconBadgeNumber(0);
+	//
+	//            document.addEventListener('push-notification', function(event) {
+	//                var notification = event.notification;
+	//                navigator.notification.alert(notification.aps.alert);
+	//                pushNotification.setApplicationIconBadgeNumber(0);
+	//            });
+	//        }
+	//    } else {
+	//        console.log(deviceOS + ' did not match any filter. Thus, did not register for push notifications');
+	//    }
+	// initPushwoosh();
 
-ranNum = Math.floor((Math.random() * 10) + 1);
-console.log(ranNum);
-if (ranNum === 1) {
-	window.introClass = 'bounceInLeft';
-} else if (ranNum === 2) {
-	window.introClass = 'bounceInRight';
-} else if (ranNum === 3) {
-	window.introClass = 'bounceInDown';
-} else {
-	window.introClass = 'bounceInUp';
-}
-setTimeout(function() {
-	cordova.exec(null, null, "SplashScreen", "hide", []);
+	ranNum = Math.floor((Math.random() * 10) + 1);
+	console.log(ranNum);
+	if (ranNum === 1) {
+		window.introClass = 'bounceInLeft';
+	} else if (ranNum === 2) {
+		window.introClass = 'bounceInRight';
+	} else if (ranNum === 3) {
+		window.introClass = 'bounceInDown';
+	} else {
+		window.introClass = 'bounceInUp';
+	}
 	setTimeout(function() {
-		$("#omnew").addClass(introClass).show().delay(300).queue(function() {
-			$("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
-				$("#vckurtnew").addClass(introClass).show().delay(300).queue(function() {
-					$("#klinkurtnew").addClass(introClass).show().delay(300).queue(function() {
-						//                            $("#newcontcover").show().delay(1600).queue(function() {
-						$("#splash").hide();
-						$("#newcont").addClass("hemcontbg");
-						//                            });
+		cordova.exec(null, null, "SplashScreen", "hide", []);
+		setTimeout(function() {
+			$("#omnew").addClass(introClass).show().delay(300).queue(function() {
+				$("#ifylltnew").addClass(introClass).show().delay(300).queue(function() {
+					$("#vckurtnew").addClass(introClass).show().delay(300).queue(function() {
+						$("#klinkurtnew").addClass(introClass).show().delay(300).queue(function() {
+							//                            $("#newcontcover").show().delay(1600).queue(function() {
+							$("#splash").hide();
+							$("#newcont").addClass("hemcontbg");
+							//                            });
+						});
 					});
 				});
 			});
-		});
+		}, 100);
 	}, 100);
-}, 100);
 }
 
 function onOffline() {
